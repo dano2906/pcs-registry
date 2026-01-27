@@ -18,14 +18,20 @@ const items = [
       <div class="mt-8 space-y-4">
         <div class="overflow-hidden w-full">
           <!-- Option 1: Custom slots -->
-          <Marquee :items="items" :speed="20" :repeats="3" direction="normal">
+          <Marquee
+            :items="items"
+            :speed="15"
+            :repeats="3"
+            direction="normal"
+          >
             <template #default="{ item }">
               <div class="flex flex-col gap-2">
                 <h3 class="font-semibold text-lg">
                   {{ item.text }}
                 </h3>
                 <a
-                  :href="item.url" target="_blank"
+                  :href="item.url"
+                  target="_blank"
                   class="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {{ item.url }}
@@ -37,14 +43,20 @@ const items = [
 
         <!-- Second row with opposite direction -->
         <div class="overflow-hidden w-full">
-          <Marquee :items="items" :speed="20" :repeats="3" direction="reverse">
+          <Marquee
+            :items="items"
+            :speed="15"
+            :repeats="3"
+            direction="reverse"
+          >
             <template #default="{ item }">
               <div class="flex flex-col gap-2">
                 <h3 class="font-semibold text-lg">
                   {{ item.text }}
                 </h3>
                 <a
-                  :href="item.url" target="_blank"
+                  :href="item.url"
+                  target="_blank"
                   class="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   {{ item.url }}
