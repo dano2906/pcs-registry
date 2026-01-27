@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<Props>(), {
   direction: 'normal',
 })
 
-const isHovered = ref(false)
+const hoveredItem = ref<string | null>(null)
 
 // Computed classes
 const containerClasses = computed(() => [
@@ -28,24 +28,31 @@ const carouselClasses = computed(() => [
   'gap-4',
   'animate-marquee',
   props.direction === 'reverse' ? 'direction-reverse' : '',
-  isHovered.value ? 'paused' : '',
+  hoveredItem.value !== null ? 'paused' : '',
 ])
 
-const itemClasses = computed(() => [
-  'group',
-  'relative',
-  'min-w-[300px]',
-  'rounded-lg',
-  'border',
-  'border-border',
-  'bg-card',
-  'p-6',
-  'transition-all',
-  'duration-300',
-  'hover:border-accent',
-  'hover:shadow-lg',
-  'hover:shadow-accent/20',
-])
+// ...existing code...
+function getItemClasses(set: number, index: number) {
+  const itemKey = `${set}-${index}`
+  const isHovered = hoveredItem.value === itemKey
+
+  return {
+    'group': true,
+    'relative': true,
+    'min-w-[300px]': true,
+    'rounded-lg': true,
+    'border': true,
+    'border-border': true,
+    'bg-card': true,
+    'p-6': true,
+    'transition-all': true,
+    'duration-300': true,
+    'outline': isHovered,
+    'outline-2': isHovered,
+    'outline-offset-2': isHovered,
+    'outline-accent': isHovered,
+  }
+}
 </script>
 
 <template>
@@ -63,8 +70,6 @@ const itemClasses = computed(() => [
     <!-- Carousel container -->
     <div
       :class="containerClasses"
-      @mouseenter="isHovered = true"
-      @mouseleave="isHovered = false"
     >
       <!-- Repeat items according to the multiplier -->
       <div
@@ -76,7 +81,9 @@ const itemClasses = computed(() => [
         <div
           v-for="(item, index) in items"
           :key="`${set}-${index}`"
-          :class="itemClasses"
+          :class="getItemClasses(set, index)"
+          @mouseenter="hoveredItem = `${set}-${index}`"
+          @mouseleave="hoveredItem = null"
         >
           <!-- If there is a custom slot, uses it -->
           <slot v-if="$slots.default" :item="item" :index="index" />
