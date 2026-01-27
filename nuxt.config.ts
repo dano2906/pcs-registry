@@ -8,6 +8,23 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  app: {
+    head: {
+      title: 'Dano Registry',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      ],
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/svg+xml',
+          href: '/logo.svg',
+          sizes: 'any',
+        },
+      ],
+    },
+  },
   modules: ['shadcn-nuxt', '@nuxt/fonts', '@nuxtjs/color-mode'],
   shadcn: {
     prefix: '',
