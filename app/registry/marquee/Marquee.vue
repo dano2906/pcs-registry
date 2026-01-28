@@ -51,7 +51,7 @@ function getItemClasses(set: number, index: number) {
     'outline-2': isHovered,
     'outline-offset-2': isHovered,
     'outline-accent': isHovered,
-    'animate-pulsing': isHovered,
+    'animate-pulse': isHovered,
   }
 }
 </script>
