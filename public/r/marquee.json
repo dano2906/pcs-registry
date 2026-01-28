@@ -1,0 +1,18 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "marquee",
+  "type": "registry:component",
+  "title": "Marquee",
+  "author": "Rafael García González <rgarciagonzalez59@gmail.com>",
+  "dependencies": [
+    "tailwind-animations"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "app/registry/marquee/Marquee.vue",
+      "content": "<script setup lang=\"ts\">\nimport { computed, ref } from 'vue'\n\ninterface Props {\n  items: any[]\n  repeats?: number\n  speed?: number\n  direction?: 'normal' | 'reverse'\n}\n\nconst props = withDefaults(defineProps<Props>(), {\n  repeats: 2,\n  speed: 30,\n  direction: 'normal',\n})\n\nconst hoveredItem = ref<string | null>(null)\n\nconst containerClasses = computed(() => [\n  'flex',\n  'gap-4',\n])\n\nconst carouselClasses = computed(() => [\n  'flex',\n  'shrink-0',\n  'gap-4',\n  'animate-marquee',\n  props.direction === 'reverse' ? 'direction-reverse' : '',\n  hoveredItem.value !== null ? 'paused' : '',\n])\n\nfunction getItemClasses(set: number, index: number) {\n  const itemKey = `${set}-${index}`\n  const isHovered = hoveredItem.value === itemKey\n\n  return {\n    'outline': isHovered,\n    'outline-2': isHovered,\n    'outline-offset-2': isHovered,\n    'outline-accent': isHovered,\n    'animate-pulsing': isHovered,\n  }\n}\n</script>\n\n<template>\n  <div class=\"relative overflow-hidden py-4\">\n    <!-- Left mask -->\n    <div\n      class=\"pointer-events-none absolute bottom-4 left-0 top-4 z-10 w-32 bg-linear-to-r from-background to-transparent\"\n    />\n\n    <!-- Right mask -->\n    <div\n      class=\"pointer-events-none absolute bottom-4 right-0 top-4 z-10 w-32 bg-linear-to-l from-background to-transparent\"\n    />\n\n    <!-- Carousel container -->\n    <div\n      :class=\"containerClasses\"\n    >\n      <!-- Repeat items according to the multiplier -->\n      <div\n        v-for=\"set in repeats\"\n        :key=\"`set-${set}`\"\n        :class=\"carouselClasses\"\n        :style=\"{ animationDuration: `${props.speed}s` }\"\n      >\n        <div\n          v-for=\"(item, index) in items\"\n          :key=\"`${set}-${index}`\"\n          class=\"group relative min-w-75 rounded-lg border border-border bg-card p-6 ml-2 mr-2 transition-all duration-300\"\n          :class=\"getItemClasses(set, index)\"\n          @mouseenter=\"hoveredItem = `${set}-${index}`\"\n          @mouseleave=\"hoveredItem = null\"\n        >\n          <!-- If there is a custom slot, uses it -->\n          <slot v-if=\"$slots.default\" :item=\"item\" :index=\"index\" />\n          <!-- If there is no slot, renders the default content -->\n          <div v-else>\n            <p class=\"text-sm\">\n              {{ item.text || item.name || item.title || JSON.stringify(item) }}\n            </p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</template>\n\n<style scoped>\n@keyframes marquee {\n  0% {\n    transform: translateX(0);\n  }\n  100% {\n    transform: translateX(-100%);\n  }\n}\n\n.animate-marquee {\n  animation: marquee 30s linear infinite;\n}\n\n.direction-reverse {\n  animation-direction: reverse;\n}\n\n.paused {\n  animation-play-state: paused;\n}\n</style>\n",
+      "type": "registry:ui"
+    }
+  ]
+}

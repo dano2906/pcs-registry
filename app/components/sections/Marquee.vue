@@ -7,12 +7,19 @@ const items = [
   { text: 'TypeScript', url: 'https://www.typescriptlang.org' },
   { text: 'Vite', url: 'https://vitejs.dev' },
 ]
+
+const dependencies = [
+  { text: 'tailwind-animations', url: 'https://tailwind-animations.com/' },
+]
 </script>
 
 <template>
   <PartialsSection
-    id="#marquee" component-name="marquee"
-    description="Componente de carrusel de desplazamiento horizontal infinito." title="Marquee"
+    id="#marquee"
+    component-name="marquee"
+    description="Componente de carrusel de desplazamiento horizontal infinito."
+    title="Marquee"
+    :dependencies="dependencies"
   >
     <template #example>
       <div class="mt-8 space-y-4">

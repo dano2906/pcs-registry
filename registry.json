@@ -182,6 +182,20 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "marquee",
+      "type": "registry:component",
+      "title": "Marquee",
+      "author": "Rafael García González <rgarciagonzalez59@gmail.com>",
+      "registryDependencies": [],
+      "dependencies": ["tailwind-animations"],
+      "files": [
+        {
+          "path": "app/registry/marquee/Marquee.vue",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
