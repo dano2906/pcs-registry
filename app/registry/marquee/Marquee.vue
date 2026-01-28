@@ -51,20 +51,21 @@ function getItemClasses(set: number, index: number) {
     'outline-2': isHovered,
     'outline-offset-2': isHovered,
     'outline-accent': isHovered,
+    'animate-pulsing': isHovered,
   }
 }
 </script>
 
 <template>
-  <div class="relative overflow-hidden">
+  <div class="relative overflow-hidden py-1">
     <!-- Left mask -->
     <div
-      class="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-32 bg-gradient-to-r from-background to-transparent"
+      class="pointer-events-none absolute bottom-1 left-0 top-1 z-10 w-32 bg-gradient-to-r from-background to-transparent"
     />
 
     <!-- Right mask -->
     <div
-      class="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-32 bg-gradient-to-l from-background to-transparent"
+      class="pointer-events-none absolute bottom-1 right-0 top-1 z-10 w-32 bg-gradient-to-l from-background to-transparent"
     />
 
     <!-- Carousel container -->
