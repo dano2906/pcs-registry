@@ -16,7 +16,6 @@ const props = withDefaults(defineProps<Props>(), {
 
 const hoveredItem = ref<string | null>(null)
 
-// Computed classes
 const containerClasses = computed(() => [
   'flex',
   'gap-4',
@@ -31,41 +30,30 @@ const carouselClasses = computed(() => [
   hoveredItem.value !== null ? 'paused' : '',
 ])
 
-// ...existing code...
 function getItemClasses(set: number, index: number) {
   const itemKey = `${set}-${index}`
   const isHovered = hoveredItem.value === itemKey
 
   return {
-    'group': true,
-    'relative': true,
-    'min-w-[300px]': true,
-    'rounded-lg': true,
-    'border': true,
-    'border-border': true,
-    'bg-card': true,
-    'p-6': true,
-    'transition-all': true,
-    'duration-300': true,
     'outline': isHovered,
     'outline-2': isHovered,
     'outline-offset-2': isHovered,
     'outline-accent': isHovered,
-    'animate-pulse': isHovered,
+    'animate-pulsing': isHovered,
   }
 }
 </script>
 
 <template>
-  <div class="relative overflow-hidden py-1">
+  <div class="relative overflow-hidden py-4">
     <!-- Left mask -->
     <div
-      class="pointer-events-none absolute bottom-1 left-0 top-1 z-10 w-32 bg-gradient-to-r from-background to-transparent"
+      class="pointer-events-none absolute bottom-4 left-0 top-4 z-10 w-32 bg-linear-to-r from-background to-transparent"
     />
 
     <!-- Right mask -->
     <div
-      class="pointer-events-none absolute bottom-1 right-0 top-1 z-10 w-32 bg-gradient-to-l from-background to-transparent"
+      class="pointer-events-none absolute bottom-4 right-0 top-4 z-10 w-32 bg-linear-to-l from-background to-transparent"
     />
 
     <!-- Carousel container -->
@@ -82,6 +70,7 @@ function getItemClasses(set: number, index: number) {
         <div
           v-for="(item, index) in items"
           :key="`${set}-${index}`"
+          class="group relative min-w-75 rounded-lg border border-border bg-card p-6 ml-2 mr-2 transition-all duration-300"
           :class="getItemClasses(set, index)"
           @mouseenter="hoveredItem = `${set}-${index}`"
           @mouseleave="hoveredItem = null"

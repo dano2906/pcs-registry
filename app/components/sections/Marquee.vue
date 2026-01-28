@@ -16,7 +16,7 @@ const items = [
   >
     <template #example>
       <div class="mt-8 space-y-4">
-        <div class="overflow-hidden w-full">
+        <div class="overflow-hidden w-full mb-0">
           <!-- Option 1: Custom slots -->
           <Marquee
             :items="items"
@@ -42,7 +42,7 @@ const items = [
         </div>
 
         <!-- Second row with opposite direction -->
-        <div class="overflow-hidden w-full">
+        <div class="overflow-hidden w-full mt-0">
           <Marquee
             :items="items"
             :speed="15"
