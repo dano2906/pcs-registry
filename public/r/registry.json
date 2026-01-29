@@ -189,7 +189,6 @@
       "title": "Marquee",
       "author": "Rafael García González <rgarciagonzalez59@gmail.com>",
       "registryDependencies": [],
-      "dependencies": ["tailwind-animations"],
       "files": [
         {
           "path": "app/registry/marquee/Marquee.vue",

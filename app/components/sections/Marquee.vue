@@ -7,10 +7,6 @@ const items = [
   { text: 'TypeScript', url: 'https://www.typescriptlang.org' },
   { text: 'Vite', url: 'https://vitejs.dev' },
 ]
-
-const dependencies = [
-  { text: 'tailwind-animations', url: 'https://tailwind-animations.com/' },
-]
 </script>
 
 <template>
