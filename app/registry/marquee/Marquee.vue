@@ -9,27 +9,22 @@ interface Props {
   orientation?: 'horizontal' | 'vertical'
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  repeats: 2,
-  speed: 30,
-  direction: 'normal',
-  orientation: 'horizontal',
-})
+const { repeats = 2, speed = 30, direction = 'normal', orientation = 'horizontal' } = defineProps<Props>()
 
 const hoveredItem = ref<string | null>(null)
 
 const containerClasses = computed(() => [
   'flex',
-  props.orientation === 'horizontal' ? 'flex-row gap-4' : 'flex-col gap-4',
+  orientation === 'horizontal' ? 'flex-row gap-4' : 'flex-col gap-4',
 ])
 
 const carouselClasses = computed(() => [
   'flex',
   'shrink-0',
   'gap-4',
-  props.orientation === 'horizontal' ? 'flex-row gap-4' : 'flex-col gap-4',
-  props.orientation === 'horizontal' ? 'animate-marquee' : 'animate-marquee-vertical',
-  props.direction === 'reverse' ? 'direction-reverse' : '',
+  orientation === 'horizontal' ? 'flex-row gap-4' : 'flex-col gap-4',
+  orientation === 'horizontal' ? 'animate-marquee' : 'animate-marquee-vertical',
+  direction === 'reverse' ? 'direction-reverse' : '',
   hoveredItem.value !== null ? 'paused' : '',
 ])
 
@@ -46,24 +41,24 @@ function getItemClasses(set: number, index: number) {
 </script>
 
 <template>
-  <div class="relative overflow-hidden py-4" :class="props.orientation === 'vertical' ? 'h-full h-min-80' : ''">
+  <div class="relative overflow-hidden py-4" :class="orientation === 'vertical' ? 'h-full h-min-80' : ''">
     <!-- Left/Top mask -->
     <div
-      v-if="props.orientation === 'horizontal'"
+      v-if="orientation === 'horizontal'"
       class="pointer-events-none absolute bottom-4 left-0 top-4 z-10 w-32 bg-linear-to-r from-background to-transparent"
     />
     <div
-      v-if="props.orientation === 'vertical'"
+      v-if="orientation === 'vertical'"
       class="pointer-events-none absolute left-0 right-0 top-0 z-10 h-25 bg-linear-to-b from-background to-transparent"
     />
 
     <!-- Right/Bottom mask -->
     <div
-      v-if="props.orientation === 'horizontal'"
+      v-if="orientation === 'horizontal'"
       class="pointer-events-none absolute bottom-4 right-0 top-4 z-10 w-32 bg-linear-to-l from-background to-transparent"
     />
     <div
-      v-if="props.orientation === 'vertical'"
+      v-if="orientation === 'vertical'"
       class="pointer-events-none absolute left-0 right-0 bottom-0 z-10 h-25 bg-linear-to-t from-background to-transparent"
     />
 
@@ -76,7 +71,7 @@ function getItemClasses(set: number, index: number) {
         v-for="set in repeats"
         :key="`set-${set}`"
         :class="carouselClasses"
-        :style="{ animationDuration: `${props.speed}s` }"
+        :style="{ animationDuration: `${speed}s` }"
       >
         <div
           v-for="(item, index) in items"
