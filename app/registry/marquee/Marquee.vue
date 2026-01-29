@@ -36,7 +36,6 @@ function getItemClasses(set: number, index: number) {
 
   return {
     'outline': isHovered,
-    'outline-2': isHovered,
     'outline-offset-2': isHovered,
     'outline-accent': isHovered,
   }
