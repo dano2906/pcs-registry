@@ -79,7 +79,7 @@ function getItemClasses(set: number, index: number) {
           class="group relative rounded-lg border border-border bg-card p-6 transition-all duration-300 ml-2 mr-2"
           :class="[
             getItemClasses(set, index),
-            props.orientation === 'horizontal' ? 'min-w-75' : 'mb-2 mt-2',
+            orientation === 'horizontal' ? 'min-w-75' : 'mb-2 mt-2',
           ]"
           @mouseenter="hoveredItem = `${set}-${index}`"
           @mouseleave="hoveredItem = null"
