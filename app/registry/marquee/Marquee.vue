@@ -6,26 +6,29 @@ interface Props {
   repeats?: number
   speed?: number
   direction?: 'normal' | 'reverse'
+  orientation?: 'horizontal' | 'vertical'
 }
 
 const props = withDefaults(defineProps<Props>(), {
   repeats: 2,
   speed: 30,
   direction: 'normal',
+  orientation: 'horizontal',
 })
 
 const hoveredItem = ref<string | null>(null)
 
 const containerClasses = computed(() => [
   'flex',
-  'gap-4',
+  props.orientation === 'horizontal' ? 'flex-row gap-4' : 'flex-col gap-4',
 ])
 
 const carouselClasses = computed(() => [
   'flex',
   'shrink-0',
   'gap-4',
-  'animate-marquee',
+  props.orientation === 'horizontal' ? 'flex-row gap-4' : 'flex-col gap-4',
+  props.orientation === 'horizontal' ? 'animate-marquee' : 'animate-marquee-vertical',
   props.direction === 'reverse' ? 'direction-reverse' : '',
   hoveredItem.value !== null ? 'paused' : '',
 ])
@@ -43,15 +46,25 @@ function getItemClasses(set: number, index: number) {
 </script>
 
 <template>
-  <div class="relative overflow-hidden py-4">
-    <!-- Left mask -->
+  <div class="relative overflow-hidden py-4" :class="props.orientation === 'vertical' ? 'h-full' : ''">
+    <!-- Left/Top mask -->
     <div
+      v-if="props.orientation === 'horizontal'"
       class="pointer-events-none absolute bottom-4 left-0 top-4 z-10 w-32 bg-linear-to-r from-background to-transparent"
     />
-
-    <!-- Right mask -->
     <div
+      v-if="props.orientation === 'vertical'"
+      class="pointer-events-none absolute left-0 right-0 top-0 z-10 h-32 bg-linear-to-b from-background to-transparent"
+    />
+
+    <!-- Right/Bottom mask -->
+    <div
+      v-if="props.orientation === 'horizontal'"
       class="pointer-events-none absolute bottom-4 right-0 top-4 z-10 w-32 bg-linear-to-l from-background to-transparent"
+    />
+    <div
+      v-if="props.orientation === 'vertical'"
+      class="pointer-events-none absolute left-0 right-0 bottom-0 z-10 h-32 bg-linear-to-t from-background to-transparent"
     />
 
     <!-- Carousel container -->
@@ -68,8 +81,11 @@ function getItemClasses(set: number, index: number) {
         <div
           v-for="(item, index) in items"
           :key="`${set}-${index}`"
-          class="group relative min-w-75 rounded-lg border border-border bg-card p-6 ml-2 mr-2 transition-all duration-300"
-          :class="getItemClasses(set, index)"
+          class="group relative rounded-lg border border-border bg-card p-6 transition-all duration-300 ml-2 mr-2"
+          :class="[
+            getItemClasses(set, index),
+            props.orientation === 'horizontal' ? 'min-w-75' : 'mb-2 mt-2',
+          ]"
           @mouseenter="hoveredItem = `${set}-${index}`"
           @mouseleave="hoveredItem = null"
         >
@@ -97,8 +113,21 @@ function getItemClasses(set: number, index: number) {
   }
 }
 
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
 .animate-marquee {
   animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical 30s linear infinite;
 }
 
 .direction-reverse {
