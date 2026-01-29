@@ -46,7 +46,7 @@ function getItemClasses(set: number, index: number) {
 </script>
 
 <template>
-  <div class="relative overflow-hidden py-4" :class="props.orientation === 'vertical' ? 'h-full' : ''">
+  <div class="relative overflow-hidden py-4" :class="props.orientation === 'vertical' ? 'h-full h-min-80' : ''">
     <!-- Left/Top mask -->
     <div
       v-if="props.orientation === 'horizontal'"
@@ -54,7 +54,7 @@ function getItemClasses(set: number, index: number) {
     />
     <div
       v-if="props.orientation === 'vertical'"
-      class="pointer-events-none absolute left-0 right-0 top-0 z-10 h-32 bg-linear-to-b from-background to-transparent"
+      class="pointer-events-none absolute left-0 right-0 top-0 z-10 h-25 bg-linear-to-b from-background to-transparent"
     />
 
     <!-- Right/Bottom mask -->
@@ -64,7 +64,7 @@ function getItemClasses(set: number, index: number) {
     />
     <div
       v-if="props.orientation === 'vertical'"
-      class="pointer-events-none absolute left-0 right-0 bottom-0 z-10 h-32 bg-linear-to-t from-background to-transparent"
+      class="pointer-events-none absolute left-0 right-0 bottom-0 z-10 h-25 bg-linear-to-t from-background to-transparent"
     />
 
     <!-- Carousel container -->

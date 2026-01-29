@@ -115,10 +115,9 @@ const testimonialItems = [
                     /> -->
       </div>
 
-      <!-- Vertical Orientation -->
       <h2>Vertical Marquee</h2>
       <div class="mt-8 flex gap-4">
-        <div class="overflow-hidden h-64 flex-1">
+        <div class="overflow-hidden h-90 flex-1">
           <Marquee
             :items="testimonialItems"
             :speed="20"
@@ -128,7 +127,7 @@ const testimonialItems = [
           >
             <template #default="{ item }">
               <div class="flex flex-col gap-3">
-                <!-- Usuario -->
+                <!-- User -->
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-full bg-linear-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-semibold">
                     {{ item.name?.charAt(0).toUpperCase() || 'U' }}
@@ -143,7 +142,7 @@ const testimonialItems = [
                   </div>
                 </div>
 
-                <!-- Comentario -->
+                <!-- Comment -->
                 <p class="text-sm text-foreground line-clamp-3">
                   {{ item.comment }}
                 </p>
@@ -161,7 +160,7 @@ const testimonialItems = [
           </Marquee>
         </div>
         <!-- second one -->
-        <div class="overflow-hidden h-64 flex-1">
+        <div class="overflow-hidden h-90 flex-1">
           <Marquee
             :items="testimonialItems"
             :speed="20"
@@ -171,7 +170,7 @@ const testimonialItems = [
           >
             <template #default="{ item }">
               <div class="flex flex-col gap-3">
-                <!-- Usuario -->
+                <!-- User -->
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-full bg-linear-to-br from-blue-500 to-purple-500 flex items-center justify-center text-white font-semibold">
                     {{ item.name?.charAt(0).toUpperCase() || 'U' }}
@@ -186,7 +185,7 @@ const testimonialItems = [
                   </div>
                 </div>
 
-                <!-- Comentario -->
+                <!-- Comment -->
                 <p class="text-sm text-foreground line-clamp-3">
                   {{ item.comment }}
                 </p>
