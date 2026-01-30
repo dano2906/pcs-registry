@@ -17,5 +17,6 @@ definePageMeta({
     <SectionsTelInput />
     <SectionsFileInput />
     <SectionsTimeline />
+    <SectionsMarquee />
   </main>
 </template>
