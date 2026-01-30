@@ -18,6 +18,7 @@ logs
 .fleet
 .idea
 work.md
+bun.lock
 
 # Local env files
 .env

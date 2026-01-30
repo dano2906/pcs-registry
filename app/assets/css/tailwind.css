@@ -75,6 +75,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --outline-accent: oklch(0.205 0 0);
 }
 
 .dark {
@@ -109,6 +110,7 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --outline-accent: oklch(0.985 0 0);
 }
 
 .sea {
@@ -159,6 +161,7 @@
 
 --sidebar-border: oklch(1 0 0 / 10%);
 --sidebar-ring: oklch(0.62 0.22 255);
+--outline-accent: oklch(0.62 0.22 255);
 
 }
 
@@ -207,6 +210,7 @@
 
 --sidebar-border: oklch(1 0 0 / 8%);
 --sidebar-ring: oklch(0.56 0.17 150);
+--outline-accent: oklch(0.56 0.17 150);
 
 }
 
@@ -255,6 +259,7 @@
 
 --sidebar-border: oklch(1 0 0 / 8%);
 --sidebar-ring: oklch(0.6 0.19 35);
+--outline-accent: oklch(0.6 0.19 35);
 }
 
 @layer base {
@@ -263,5 +268,11 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .outline-accent {
+    outline-color: var(--outline-accent);
   }
 }
