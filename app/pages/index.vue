@@ -16,6 +16,7 @@ definePageMeta({
     <SectionsMultiSelect />
     <SectionsTelInput />
     <SectionsFileInput />
+    <SectionsTimeline />
     <SectionsMarquee />
   </main>
 </template>
