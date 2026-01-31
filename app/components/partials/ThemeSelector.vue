@@ -31,5 +31,8 @@ const colorMode = useColorMode()
     <NativeSelectOption value="volcanic">
       Volcanic
     </NativeSelectOption>
+    <NativeSelectOption value="aurora">
+      Aurora
+    </NativeSelectOption>
   </NativeSelect>
 </template>

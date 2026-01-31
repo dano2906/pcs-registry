@@ -263,6 +263,65 @@
 --outline-accent: oklch(0.6 0.19 35);
 }
 
+.aurora {
+  /* Base */
+  --background: oklch(0.14 0.02 290);          /* morado muy oscuro */
+  --foreground: oklch(0.985 0.01 300);
+
+  --card: oklch(0.205 0.03 290);
+  --card-foreground: oklch(0.985 0.01 300);
+
+  --popover: oklch(0.205 0.03 290);
+  --popover-foreground: oklch(0.985 0.01 300);
+
+  /* Primary – rosa vibrante */
+  --primary: oklch(0.68 0.23 340);             /* pink-500-ish */
+  --primary-foreground: oklch(0.98 0.01 340);
+
+  /* Secondary – índigo profundo */
+  --secondary: oklch(0.28 0.04 275);
+  --secondary-foreground: oklch(0.985 0.01 300);
+
+  /* Muted */
+  --muted: oklch(0.28 0.04 275);
+  --muted-foreground: oklch(0.72 0.03 290);
+
+  /* Accent – violeta luminoso */
+  --accent: oklch(0.38 0.12 305);
+  --accent-foreground: oklch(0.985 0.01 305);
+
+  /* Destructive */
+  --destructive: oklch(0.71 0.2 20);
+
+  /* Borders & inputs */
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.68 0.23 340);                /* mismo rosa que primary */
+
+  /* Charts – morado / rosa / índigo */
+  --chart-1: oklch(0.68 0.23 340);  /* pink */
+  --chart-2: oklch(0.65 0.2 300);   /* violet */
+  --chart-3: oklch(0.6 0.18 275);   /* indigo */
+  --chart-4: oklch(0.7 0.17 320);   /* magenta */
+  --chart-5: oklch(0.62 0.16 250);  /* blue-indigo */
+
+  /* Sidebar */
+  --sidebar: oklch(0.205 0.03 290);
+  --sidebar-foreground: oklch(0.985 0.01 300);
+
+  --sidebar-primary: oklch(0.68 0.23 340);
+  --sidebar-primary-foreground: oklch(0.985 0.01 340);
+
+  --sidebar-accent: oklch(0.38 0.12 305);
+  --sidebar-accent-foreground: oklch(0.985 0.01 305);
+
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.68 0.23 340);
+
+  --outline-accent: oklch(0.68 0.23 340);
+}
+
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
