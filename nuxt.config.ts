@@ -4,7 +4,6 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   css: ['~/assets/css/tailwind.css'],
-
   vite: {
     plugins: [tailwindcss()],
   },
@@ -25,7 +24,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ['shadcn-nuxt', '@nuxt/fonts', '@nuxtjs/color-mode'],
+  modules: ['shadcn-nuxt', '@nuxt/fonts', '@nuxtjs/color-mode', '@nuxt/content'],
   shadcn: {
     prefix: '',
     componentDir: '@/components/ui',

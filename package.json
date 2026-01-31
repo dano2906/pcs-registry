@@ -13,15 +13,17 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@nuxt/content": "3.11.0",
     "@nuxt/fonts": "0.12.1",
     "@nuxtjs/color-mode": "4.0.0",
     "@vueuse/core": "^14.1.0",
+    "better-sqlite3": "^12.6.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "currency-codes": "^2.2.0",
     "libphonenumber-js": "^1.12.36",
     "lucide-vue-next": "^0.562.0",
-    "nuxt": "^4.3.0",
+    "nuxt": "^4.2.2",
     "reka-ui": "^2.8.0",
     "shadcn-nuxt": "2.4.3",
     "shadcn-vue": "^2.4.3",

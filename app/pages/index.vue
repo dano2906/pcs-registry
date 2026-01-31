@@ -30,12 +30,13 @@ definePageMeta({
       A library of visual components designed to  <span class="text-primary font-medium">work together</span>. Each piece is built to simplify and <span class="text-primary font-medium">speed up</span> your workflow without sacrificing flexibility.
     </p>
     <div class="flex flex-col items-center justify-center gap-2 md:flex-row md:gap-4">
-      <NuxtLink to="/overview" class="text-primary font-medium bg-primary/5 hover:text-primary/80 hover:bg-primary/5 backdrop-blur-xl transition border border-primary rounded-xl px-4 py-1 text-base lg:text-xl">
+      <NuxtLink to="/docs/overview" class="text-primary font-medium bg-primary/5 hover:text-primary/80 hover:bg-primary/5 backdrop-blur-xl transition border border-primary rounded-xl px-4 py-1 text-base lg:text-xl">
         Get started
       </NuxtLink>
-      <NuxtLink to="/components" class="text-muted-foreground bg-muted-foreground/5 font-medium hover:text-muted-foreground/80 hover:bg-muted-foreground/5 backdrop-blur-xl transition border border-muted-foreground rounded-xl px-4 py-1 text-base lg:text-xl">
+      <NuxtLink to="/docs/components" class="text-muted-foreground bg-muted-foreground/5 font-medium hover:text-muted-foreground/80 hover:bg-muted-foreground/5 backdrop-blur-xl transition border border-muted-foreground rounded-xl px-4 py-1 text-base lg:text-xl">
         Components
       </NuxtLink>
     </div>
+    <PartialsContribuitors />
   </main>
 </template>

@@ -1,8 +1,9 @@
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - better-sqlite3
+  - esbuild
+  - vue-demi
+
 shellEmulator: true
 
 trustPolicy: no-downgrade
-
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - esbuild
-  - vue-demi

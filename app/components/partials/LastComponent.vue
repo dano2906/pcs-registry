@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ArrowRightIcon } from 'lucide-vue-next'
-import { site_config } from '@/lib/constants.ts'
+import { site_config } from '@/lib/constants'
 </script>
 
 <template>
