@@ -3,6 +3,9 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  future: {
+    compatibilityVersion: 5,
+  },
   css: ['~/assets/css/tailwind.css'],
   vite: {
     plugins: [tailwindcss()],
@@ -15,7 +18,6 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       ],
       htmlAttrs: {
-        class: 'forest',
         lang: 'en',
       },
       link: [
@@ -62,5 +64,10 @@ export default defineNuxtConfig({
       { code: 'en', name: 'English', file: 'en.json' },
       { code: 'es', name: 'Español', file: 'es.json' },
     ],
+  },
+  routeRules: {
+    '/docs/**': {
+      appLayout: 'docs',
+    },
   },
 })
