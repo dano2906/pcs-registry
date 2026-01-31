@@ -16,6 +16,7 @@ export default defineNuxtConfig({
       ],
       htmlAttrs: {
         class: 'forest',
+        lang: 'en',
       },
       link: [
         {
@@ -27,7 +28,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ['shadcn-nuxt', '@nuxt/fonts', '@nuxtjs/color-mode', '@nuxt/content', 'nuxt-svgo'],
+  modules: ['shadcn-nuxt', '@nuxt/fonts', '@nuxtjs/color-mode', '@nuxt/content', 'nuxt-svgo', '@nuxtjs/i18n'],
   shadcn: {
     prefix: '',
     componentDir: '@/components/ui',
@@ -52,5 +53,14 @@ export default defineNuxtConfig({
   },
   imports: {
     dirs: ['~/registry', '~/components', '~/lib', '~/utils'],
+  },
+  i18n: {
+    defaultLocale: 'en',
+    langDir: 'locales/',
+    strategy: 'no_prefix',
+    locales: [
+      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'es', name: 'Español', file: 'es.json' },
+    ],
   },
 })

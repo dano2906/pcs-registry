@@ -16,6 +16,9 @@ onMounted(() => {
     :class="{ 'bg-muted/10 shadow-none': isFixed }"
   >
     <LogoIcon class="text-5xl text-primary my-1 p-0" />
-    <PartialsThemeSelector />
+    <div class="flex items-center justify-center gap-2">
+      <PartialsLangSelector />
+      <PartialsThemeSelector />
+    </div>
   </header>
 </template>

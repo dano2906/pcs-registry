@@ -6,7 +6,7 @@ definePageMeta({
 </script>
 
 <template>
-  <main class="w-full py-28 px-2 min-h-screen flex flex-col items-center justify-start gap-10">
+  <main class="w-full py-28 px-2 min-h-screen flex flex-col items-center justify-start gap-10 **:selection:bg-accent">
     <div
       class="absolute inset-0 -z-10 hero-grid-top-right animate-fade-in"
     />
@@ -19,14 +19,14 @@ definePageMeta({
       <span class="text-muted-foreground z-40">Pieces</span>
     </h1>
     <p class="text-muted-foreground text-sm md:text-base tracking-wide font-normal text-balance text-center">
-      A library of visual components designed to  <span class="text-primary font-medium">work together</span>. Each piece is built to simplify and <span class="text-primary font-medium">speed up</span> your workflow without sacrificing flexibility.
+      {{ $t('description.content_1') }}<span class="text-primary font-medium">{{ $t('description.content_2') }}</span> {{ $t('description.content_3') }} <span class="text-primary font-medium"> {{ $t('description.content_4') }}</span> {{ $t('description.content_5') }}
     </p>
     <div class="flex flex-col items-center justify-center gap-2 md:flex-row md:gap-4">
-      <NuxtLink to="/docs/overview" class="text-primary font-medium bg-primary/5 hover:text-primary/80 hover:bg-primary/5 backdrop-blur-xl transition border border-primary rounded-xl px-4 py-1 text-base lg:text-xl">
-        Get started
+      <NuxtLink to="/docs/overview" class="text-primary font-medium bg-primary/5 hover:text-primary/80 hover:bg-primary/5 backdrop-blur-xl transition border border-primary rounded-xl px-4 py-1 text-base lg:text-xl min-w-40 text-center">
+        {{ $t('call_to_action_1') }}
       </NuxtLink>
-      <NuxtLink to="/docs/components" class="text-muted-foreground bg-muted-foreground/5 font-medium hover:text-muted-foreground/80 hover:bg-muted-foreground/5 backdrop-blur-xl transition border border-muted-foreground rounded-xl px-4 py-1 text-base lg:text-xl">
-        Components
+      <NuxtLink to="/docs/components" class="text-muted-foreground bg-muted-foreground/5 font-medium hover:text-muted-foreground/80 hover:bg-muted-foreground/5 backdrop-blur-xl transition border border-muted-foreground rounded-xl px-4 py-1 text-base lg:text-xl min-w-40 text-center">
+        {{ $t('call_to_action_2') }}
       </NuxtLink>
     </div>
     <PartialsContribuitors />
