@@ -5,8 +5,8 @@ import { RefreshCcw } from 'lucide-vue-next'
 const { data, status, error, refresh } = await useFetch<Contribuitor[]>('https://api.github.com/repos/dano2906/pcs-registry/contributors')
 
 function getFallback(username: string) {
-  const first = username.at(0) ?? 'O'
-  const last = username.at(-1) ?? 'P'
+  const first = username.at(0)?.toUpperCase() ?? 'O'
+  const last = username.at(-1)?.toUpperCase() ?? 'P'
   return first + last
 }
 </script>
