@@ -14,6 +14,9 @@ export default defineNuxtConfig({
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       ],
+      htmlAttrs: {
+        class: 'forest',
+      },
       link: [
         {
           rel: 'icon',
@@ -24,7 +27,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ['shadcn-nuxt', '@nuxt/fonts', '@nuxtjs/color-mode', '@nuxt/content'],
+  modules: ['shadcn-nuxt', '@nuxt/fonts', '@nuxtjs/color-mode', '@nuxt/content', 'nuxt-svgo'],
   shadcn: {
     prefix: '',
     componentDir: '@/components/ui',

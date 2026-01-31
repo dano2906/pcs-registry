@@ -6,20 +6,12 @@ definePageMeta({
 </script>
 
 <template>
-  <main class="w-full py-28 px-2 min-h-screen flex flex-col items-center justify-start gap-7">
+  <main class="w-full py-28 px-2 min-h-screen flex flex-col items-center justify-start gap-10">
     <div
-      className="absolute inset-0 -z-10"
-      :style="{
-        backgroundImage: `
-        linear-gradient(45deg, transparent 49%, var(--accent) 49%, var(--accent) 51%, transparent 51%),
-        linear-gradient(-45deg, transparent 49%, var(--accent) 49%, var(--accent) 51%, transparent 51%)
-      `,
-        backgroundSize: '40px 40px',
-        WebkitMaskImage:
-          'radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%)',
-        maskImage:
-          'radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%)',
-      }"
+      class="absolute inset-0 -z-10 hero-grid-top-right animate-fade-in"
+    />
+    <div
+      class="absolute inset-0 -z-10 hero-grid-bottom-left animate-fade-in"
     />
     <PartialsLastComponent />
     <h1 class="text-6xl lg:text-9xl font-black tracking-tight space-x-3 text-center">
@@ -40,3 +32,32 @@ definePageMeta({
     <PartialsContribuitors />
   </main>
 </template>
+
+<style scoped>
+.hero-grid-top-right {
+  background-image:
+    linear-gradient(45deg, transparent 49%, var(--accent) 49%, var(--accent) 51%, transparent 51%),
+    linear-gradient(-45deg, transparent 49%, var(--accent) 49%, var(--accent) 51%, transparent 51%);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 100% 0%, #000 50%, transparent 90%);
+}
+
+.hero-grid-bottom-left {
+  background-image:
+    linear-gradient(45deg, transparent 49%, var(--accent) 49%, var(--accent) 51%, transparent 51%),
+    linear-gradient(-45deg, transparent 49%, var(--accent) 49%, var(--accent) 51%, transparent 51%);
+  background-size: 40px 40px;
+
+  mask-image: radial-gradient(
+    ellipse 80% 80% at 0% 100%,
+    #000 50%,
+    transparent 90%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 80% 80% at 0% 100%,
+    #000 50%,
+    transparent 90%
+  );
+}
+</style>

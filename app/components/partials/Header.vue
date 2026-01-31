@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import LogoIcon from '~/assets/svg/logo.svg'
+
 const isFixed = ref(false)
 
 onMounted(() => {
@@ -10,10 +12,10 @@ onMounted(() => {
 
 <template>
   <header
-    class="flex items-center justify-between w-full mx-auto container max-w-5xl rounded-md p-2 sticky top-4 transition-all duration-300 ease-in-out bg-muted/60 backdrop-blur-sm z-50 shadow"
+    class="flex items-center justify-between w-full mx-auto container max-w-5xl rounded-md px-2 py-0.5 sticky top-4 transition-all duration-300 ease-in-out bg-muted/60 backdrop-blur-sm z-50 shadow"
     :class="{ 'bg-muted/10 shadow-none': isFixed }"
   >
-    <img src="/logo.svg" alt="Pieces logo" class="h-8 w-auto">
+    <LogoIcon class="text-5xl text-primary my-1 p-0" />
     <PartialsThemeSelector />
   </header>
 </template>
