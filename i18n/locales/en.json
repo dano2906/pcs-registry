@@ -9,5 +9,21 @@
   "last_component": "See our last component",
   "call_to_action_1": "Get started",
   "call_to_action_2": "Components",
-  "no_copyright": "None rights reserved"
+  "no_copyright": "None rights reserved",
+  "overview": {
+    "title": "Overview",
+    "subtitle": "This is a platform for sharing code and providing the basic functionalities of components without losing flexibility."
+  },
+  "components": {
+    "title": "Components",
+    "subtitle": "Here you can find the list of all available components."
+  },
+  "contributing": {
+    "title": "Contributing",
+    "subtitle": "This is an open-source project born as a hobby—collaborate with us."
+  },
+  "changelog": {
+    "title": "Changelog",
+    "subtitle": "Release notes for each component and the next component to be published."
+  }
 }

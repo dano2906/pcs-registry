@@ -6,13 +6,13 @@ import 'vue-sonner/style.css'
 <template>
   <div class="w-full font-inter p-4 relative">
     <SidebarProvider>
-      <PartialsDocsSidebar />
       <div class="w-full max-w-5xl mx-auto space-y-4">
         <PartialsHeader>
           <template #sidebar-trigger>
             <SidebarTrigger />
           </template>
         </PartialsHeader>
+        <PartialsDocsSidebar />
         <slot />
       </div>
     </SidebarProvider>

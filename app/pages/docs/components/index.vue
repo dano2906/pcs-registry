@@ -5,7 +5,7 @@ definePageMeta({
 </script>
 
 <template>
-  <div>
-    list of
-  </div>
+  <PartialsPageLayout title-key="components.title" subtitle-key="components.subtitle">
+    components
+  </PartialsPageLayout>
 </template>

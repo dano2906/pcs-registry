@@ -9,5 +9,21 @@
   "last_component": "Ver nuestro último componente",
   "call_to_action_1": "Comenzar",
   "call_to_action_2": "Componentes",
-  "no_copyright": "Ningún derecho reservado"
+  "no_copyright": "Ningún derecho reservado",
+  "overview": {
+    "title": "Descripción general",
+    "subtitle": "Esta es una plataforma para compartir codigo y brindar las funcionalidades basicas de los componentes sin perder flexibilidad."
+  },
+  "components": {
+    "title": "Componentes",
+    "subtitle": "Aquí encontrarás la lista de todos los componentes disponibles."
+  },
+  "contributing": {
+    "title": "Contribuciones",
+    "subtitle": "Este es un proyecto de codigo abierto nacido como un hobby, colabora con nosotros."
+  },
+  "changelog": {
+    "title": "Registro de cambios",
+    "subtitle": "Notas de publicacion de cada componente y siguiente componente en ser publicado."
+  }
 }
