@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import TelInput from '@/registry/tel-input/TelInput.vue'
-import Typography from '~/registry/typhography/Typography.vue'
+import Typography from '~/registry/typography/Typography.vue'
 
 const phone = ref(undefined)
 
