@@ -34,8 +34,8 @@
           plan-name="Free Plan"
           :price="0.00"
           coin="$"
-          :cons="['Ads every 10 minutes']"
-          :pros="['Unlimited access to basic features']"
+          :cons="['Ads every 10 minutes', 'Ads every 10 minutes', 'Ads every 10 minutes', 'Ads every 10 minutes']"
+          :pros="['Unlimited access to basic features', 'Ads every 10 minutes', 'Ads every 10 minutes', 'Ads every 10 minutes', 'Ads every 10 minutes']"
         />
       </div>
     </template>
