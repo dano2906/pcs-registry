@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { MultiSelectDataProp } from '~~/shared/types/app'
 import { Command, CommandEmpty, CommandInput, CommandList } from '@/components/ui/command'
-import Typography from '@/registry/typhography/Typography.vue'
+import Typography from '@/registry/typography/Typography.vue'
 import MultiSelectActions from './MultiSelectActions.vue'
 import MultiSelectItem from './MultiSelectItem.vue'
 import MultiSelectValue from './MultiSelectValue.vue'

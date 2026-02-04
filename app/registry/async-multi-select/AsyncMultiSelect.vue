@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="T extends Record<PropertyKey, any>">
 import { Check } from 'lucide-vue-next'
 import { Command, CommandEmpty, CommandInput, CommandList } from '@/components/ui/command'
-import Typography from '@/registry/typhography/Typography.vue'
+import Typography from '@/registry/typography/Typography.vue'
 import AsyncMultiSelectActions from './AsyncMultiSelectActions.vue'
 import AsyncMultiSelectValue from './AsyncMultiSelectValue.vue'
 

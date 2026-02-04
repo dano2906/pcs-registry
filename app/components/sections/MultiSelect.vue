@@ -4,14 +4,14 @@ import AsyncMultiSelect from '@/registry/async-multi-select/AsyncMultiSelect.vue
 const registryDependenciesAsync = [
   { text: 'command' },
   { text: 'button' },
-  { text: 'typhography', url: '#typography' },
+  { text: 'typography', url: '#typography' },
   { text: 'loading-swap', url: '#loading-swap',
   },
 ]
 const registryDependencies = [
   { text: 'command' },
   { text: 'button' },
-  { text: 'typhography', url: '#typography' },
+  { text: 'typography', url: '#typography' },
 ]
 const selectedValues = ref<string[]>([])
 const selectedAsyncValues = ref([])
