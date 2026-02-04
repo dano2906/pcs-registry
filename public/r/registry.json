@@ -195,6 +195,19 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "pricing-card ",
+      "type": "registry:component",
+      "title": "Pricing Card",
+      "author": "Rafael García González <rgarciagonzalez59@gmail.com>",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "app/registry/pricing-card/PricingCard.vue",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
