@@ -1,0 +1,15 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "pricing-card ",
+  "type": "registry:component",
+  "title": "Pricing Card",
+  "author": "Rafael García González <rgarciagonzalez59@gmail.com>",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "app/registry/pricing-card/PricingCard.vue",
+      "content": "<script setup lang=\"ts\">\n// import { ref } from 'vue';\n\ninterface Props {\n  planName: string\n  price: number\n  coin?: '$' | '€' | '£' | '¥'\n  pros?: string[]\n  cons?: string[]\n  isMostPopular?: boolean\n  paymentMethod?: 'month' | 'year' | 'week'\n}\n\nconst { pros = ['Unlimited checks', 'Unlimited devices'], cons = ['Limited month access', 'Limited search area'], paymentMethod = 'month', coin = '$', isMostPopular = false } = defineProps<Props>()\n\nconst cardStyles = computed(() => {\n  return isMostPopular ? 'border-primary shadow-3xl ring-4 ring-ring bg-gradient-to-b' : ''\n})\n</script>\n\n<template>\n  <div\n    class=\"group relative rounded-lg border border-border shadow-md bg-card p-6  min-w-78 max-w-95 min-h-112.5 max-h-[470] hover:scale-[1.02] transition-transform flex flex-col\"\n    :class=\"cardStyles\"\n  >\n    <!-- Badge \"Most Popular\" -->\n    <div v-if=\"isMostPopular\" class=\"absolute -top-3 -right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold shadow-lg\">\n      Most Popular\n    </div>\n    <div class=\"plan-type items-center font-bold text-4xl mb-2 flex justify-between\">\n      {{ planName }}\n    </div>\n    <div v-if=\"type !== 'free'\" class=\"flex gap-1 mt-4 items-center\">\n      <h2>{{ coin }}{{ price.toFixed(2) }}</h2>\n      <h3>/{{ paymentMethod }}</h3>\n    </div>\n    <div v-else class=\"flex gap-1 mt-4 items-center\">\n      <h2>{{ coin }}0.00</h2>\n      <h3>/{{ paymentMethod }}</h3>\n    </div>\n    <div class=\"plan-description border-t border-border mt-4 pt-4\">\n      <!-- If there is a custom slot, uses it -->\n      <slot v-if=\"$slots.default\" />\n      <!-- If there is no slot, renders the default content -->\n      <div v-else>\n        <ul class=\"mt-4 space-y-2\">\n          <li v-for=\"(pro, index) in pros\" :key=\"index\" class=\"flex items-center gap-2\">\n            <span class=\"check-span-pro\">✔</span>\n            <span>{{ pro }}</span>\n          </li>\n        </ul>\n        <ul class=\"mt-4 space-y-2\">\n          <li v-for=\"(con, index) in cons\" :key=\"index\" class=\"flex items-center gap-2\">\n            <span class=\"check-span-con\">✘</span>\n            <span>{{ con }}</span>\n          </li>\n        </ul>\n      </div>\n    </div>\n\n    <div class=\"mt-auto pb-2\">\n      <button\n        class=\"w-full primary bg-primary text-primary-foreground py-2 px-4 rounded-lg font-semibold hover:scale-[1.02] transition-transform cursor-pointer\"\n      >\n        Choose Plan\n      </button>\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    }
+  ]
+}
