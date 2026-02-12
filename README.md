@@ -9,7 +9,12 @@
 ⏱️ Currency input 0.3
 ⏱️ Credit card
 ⏱️ Table
-⏱️ Form  0.4
+⏱️ Form  0.4.
+    // TODO
+    // Poder validar un campo individual
+    // Poder saber q campos cambiaron
+    // Hacer un validation on submit
+    // Poder armar el form a partir del validation schema
 ⏱️ Dialog form
 ⏱️ Header
 ⏱️ Footer  0.5

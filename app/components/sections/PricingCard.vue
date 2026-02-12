@@ -16,7 +16,7 @@
           :price="99.99"
           coin="$"
           payment-method="month"
-          is-most-popular="true"
+          :is-most-popular="true"
         />
         <PricingCard
           plan-name="Advanced Plan"

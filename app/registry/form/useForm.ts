@@ -1,9 +1,12 @@
 import type { StandardSchemaV1 } from '@standard-schema/spec'
-import { computed, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 
 interface FormOptions<T extends StandardSchemaV1> {
-  initialValues: StandardSchemaV1.InferInput<T>
-  validateOn?: 'change' | 'submit' | 'manual'
+  name?: string
+  initialValues: Partial<StandardSchemaV1.InferInput<T>>
+  validateOn?: 'change' | 'submit'
+  validateOnMount?: boolean
+  onSubmit?: (data: StandardSchemaV1.InferOutput<T>) => void | Promise<void>
 }
 
 export function useForm<T extends StandardSchemaV1>(
@@ -11,21 +14,16 @@ export function useForm<T extends StandardSchemaV1>(
   options: FormOptions<T>,
 ) {
   type FormInput = StandardSchemaV1.InferInput<T>
-
-  // Estado principal
-  const fields = ref<FormInput>({ ...options.initialValues })
+  const name = options.name
+  const fields = ref<FormInput>(structuredClone(options.initialValues))
   const errors = ref<Record<string, string>>({})
   const isSubmitting = ref(false)
   const isDirty = ref(false)
 
-  // Determinar si el formulario es válido (si no hay llaves en el objeto de errores)
   const isValid = computed(() => Object.keys(errors.value).length === 0)
 
-  /**
-   * Ejecuta la validación del Standard Schema
-   */
   async function validate() {
-    const result = await schema['~standard'].validate(fields)
+    const result = await schema['~standard'].validate(fields.value)
 
     if (result.issues) {
       errors.value = result.issues.reduce((acc, issue) => {
@@ -40,32 +38,52 @@ export function useForm<T extends StandardSchemaV1>(
     return { success: true, data: result.value }
   }
 
-  /**
-   * Crea un "model" (ref) vinculado a una propiedad del objeto fields.
-   * Útil para usar con v-model en el template.
-   */
+  async function handleSubmit(e?: Event) {
+    if (e)
+      e.preventDefault()
+
+    isSubmitting.value = true
+
+    try {
+      const result = await validate()
+      if (result.success && options.onSubmit) {
+        await options.onSubmit(result.data)
+      }
+    }
+    finally {
+      isSubmitting.value = false
+    }
+  }
+
   function defineField(path: keyof FormInput) {
     return computed({
-      get: () => fields[path],
+      get: () => fields.value[path],
       set: (val) => {
-        fields[path] = val
+        fields.value[path] = val
         isDirty.value = true
       },
     })
   }
 
-  // Lógica de validación automática por cambio
   if (options.validateOn === 'change') {
     watch(fields, () => validate(), { deep: true })
   }
 
+  onMounted(() => {
+    if (options.validateOnMount !== false) {
+      validate()
+    }
+  })
+
   return {
+    name,
     fields,
     errors,
     isValid,
     isDirty,
     isSubmitting,
     validate,
+    handleSubmit,
     defineField,
   }
 }
