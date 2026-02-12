@@ -15,6 +15,7 @@
   "dependencies": {
     "@nuxt/fonts": "0.12.1",
     "@nuxtjs/color-mode": "4.0.0",
+    "@standard-schema/spec": "^1.1.0",
     "@vueuse/core": "^14.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -26,9 +27,11 @@
     "shadcn-nuxt": "2.4.3",
     "shadcn-vue": "^2.4.3",
     "tailwind-merge": "^3.4.0",
+    "valibot": "^1.2.0",
     "vue": "^3.5.26",
     "vue-router": "^4.6.4",
-    "vue-sonner": "^2.0.9"
+    "vue-sonner": "^2.0.9",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.7.3",

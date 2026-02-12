@@ -1,17 +1,17 @@
-✅ Action Button 
-✅ Password input 
+✅ Action Button
+✅ Password input
 ✅ Loading Swap 0.1
-✅ Number input 
+✅ Number input
 ✅ Multiselect + Async Multiselect
-✅ Phone input 0.2 
+✅ Phone input 0.2
 ✅ File upload component with dropzone
-✅ Currency selector 
+✅ Currency selector
 ⏱️ Currency input 0.3
 ⏱️ Credit card
 ⏱️ Table
 ⏱️ Form  0.4
 ⏱️ Dialog form
-⏱️ Header  
+⏱️ Header
 ⏱️ Footer  0.5
 ⏱️ Breadcrumb
 ⏱️ Partition Bar (https://ui.8starlabs.com/docs/components/partition-bar)
@@ -20,3 +20,4 @@
 ⏱️ Chatbot
 ⏱️ Stepper form 0.7
 ⏱️ Link preview
+⏱️ Entity
