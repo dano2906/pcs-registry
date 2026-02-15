@@ -6,19 +6,18 @@
 ✅ Phone input 0.2
 ✅ File upload component with dropzone
 ✅ Currency selector
-✅ Timeline (https://ui.8starlabs.com/docs/components/timeline) 0.3
-✅ Marquee
-⏱️ Pricing
-⏱️ Currency input 0.4
+✅ useForm 0.3
+✅ Timeline (https://ui.8starlabs.com/docs/components/timeline)
 ⏱️ Credit card
-⏱️ Table
-⏱️ Form 0.5
+⏱️ Table 0.4
+⏱️ Currency input
 ⏱️ Dialog form
-⏱️ Header
-⏱️ Footer 0.6
+⏱️ Header 0.5
+⏱️ Footer
 ⏱️ Breadcrumb
-⏱️ Partition Bar (https://ui.8starlabs.com/docs/components/partition-bar)
-⏱️ System banner (https://ui.8starlabs.com/docs/components/system-banner) 0.7
+⏱️ Partition Bar (https://ui.8starlabs.com/docs/components/partition-bar) 0.6
+⏱️ System banner (https://ui.8starlabs.com/docs/components/system-banner)
 ⏱️ Chatbot
-⏱️ Stepper form
-⏱️ Link preview 0.8
+⏱️ Stepper form 0.7
+⏱️ Link preview
+⏱️ Entity

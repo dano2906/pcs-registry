@@ -1,0 +1,15 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "pricing-card ",
+  "type": "registry:component",
+  "title": "Pricing Card",
+  "author": "Rafael García González <rgarciagonzalez59@gmail.com>",
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "app/registry/pricing-card/PricingCard.vue",
+      "content": "<script setup lang=\"ts\">\ninterface Props {\n  planName: string\n  price: number\n  coin?: '$' | '€' | '£' | '¥'\n  pros?: string[]\n  cons?: string[]\n  isMostPopular?: boolean\n  paymentMethod?: 'month' | 'year' | 'week'\n}\n\nconst { pros = ['Unlimited checks', 'Unlimited devices'], cons = ['Limited month access', 'Limited search area'], paymentMethod = 'month', coin = '$', isMostPopular = false } = defineProps<Props>()\n</script>\n\n<template>\n  <div\n    class=\"group relative rounded-lg border border-border bg-card px-6 py-4 min-w-78 max-w-95 aspect-9/13 flex flex-col shadow hover:shadow-md shadow-accent transition\"\n\n    :class=\"[isMostPopular ? 'border-2 border-primary shadow-3xl bg-linear-to-b from-primary/10 to-primary/5' : 'border']\"\n  >\n    <span v-if=\"isMostPopular\" class=\"absolute -top-3 -right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold shadow-lg\">\n      Most Popular\n    </span>\n    <h3 class=\"items-center font-bold text-4xl mb-2 flex justify-between text-card-foreground\">\n      {{ planName }}\n    </h3>\n    <div class=\"flex mt-2 items-end\">\n      <h4 class=\"text-2xl font-medium\">\n        {{ coin }}{{ price.toFixed(2) }}/\n      </h4>\n      <span class=\"text-base\">{{ paymentMethod }}</span>\n    </div>\n    <div class=\"border-t border-border py-2\">\n      <slot v-if=\"$slots.default\" />\n      <div v-else>\n        <ul class=\"mt-2 space-y-2\">\n          <li v-for=\"(pro, index) in pros\" :key=\"index\" class=\"flex items-center gap-2\">\n            <span class=\"text-check-span-pro\">✔</span>\n            <span>{{ pro }}</span>\n          </li>\n        </ul>\n        <ul class=\"mt-2 space-y-2\">\n          <li v-for=\"(con, index) in cons\" :key=\"index\" class=\"flex items-center gap-2\">\n            <span class=\"text-check-span-con\">✘</span>\n            <span>{{ con }}</span>\n          </li>\n        </ul>\n      </div>\n    </div>\n\n    <div class=\"mb-2 mt-auto\">\n      <Button\n        class=\"w-full primary bg-primary text-primary-foreground py-2 px-4 rounded-lg font-semibold\"\n      >\n        Choose Plan\n      </Button>\n    </div>\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Check } from 'lucide-vue-next'
-import Typography from '@/registry/typhography/Typography.vue'
+import Typography from '@/registry/typography/Typography.vue'
 import CommandItem from '~/components/ui/command/CommandItem.vue'
 
 const { item, checked } = defineProps<{

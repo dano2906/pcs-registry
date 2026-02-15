@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import Typography from '@/registry/typhography/Typography.vue'
+import Typography from '@/registry/typography/Typography.vue'
 </script>
 
 <template>

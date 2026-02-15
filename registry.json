@@ -4,14 +4,14 @@
   "homepage": "https://dano-registry.vercel.app/",
   "items": [
     {
-      "name": "typhography",
+      "name": "typography",
       "type": "registry:component",
       "title": "Tipografía",
       "description": "Un componente para mostrar textos en pantalla con diferentes estilos.",
       "author": "Danilo León <dlg9806@gmail.com>",
       "files": [
         {
-          "path": "app/registry/typhography/Typography.vue",
+          "path": "app/registry/typography/Typography.vue",
           "type": "registry:ui"
         }
       ]
@@ -87,7 +87,7 @@
       "title": "Select con posibilidad de seleccionar varias opciones",
       "description": "Select con posibilidad de seleccionar varias opciones.",
       "author": "Danilo León <dlg9806@gmail.com>",
-      "registryDependencies": ["command", "button", "https://https://dano-registry.vercel.app/r/typhography.json"],
+      "registryDependencies": ["command", "button", "https://https://dano-registry.vercel.app/r/typography.json"],
       "files": [
         {
           "path": "app/registry/multi-select/MultiSelect.vue",
@@ -117,7 +117,7 @@
       "title": "Select con posibilidad de seleccionar varias opciones",
       "description": "Select con posibilidad de seleccionar varias opciones desde una url asíncronamente",
       "author": "Danilo León <dlg9806@gmail.com>",
-      "registryDependencies": ["command", "button", "https://https://dano-registry.vercel.app/r/typhography.json", "https://https://dano-registry.vercel.app/r/loading-swap.json"],
+      "registryDependencies": ["command", "button", "https://https://dano-registry.vercel.app/r/typography.json", "https://https://dano-registry.vercel.app/r/loading-swap.json"],
       "files": [
         {
           "path": "app/registry/async-multi-select/AsyncMultiSelect.vue",
@@ -193,6 +193,46 @@
         {
           "path": "app/registry/marquee/Marquee.vue",
           "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "timeline",
+      "type": "registry:component",
+      "title": "Timeline",
+      "author": "Rafael García González <rgarciagonzalez59@gmail.com>",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "app/registry/timeline/Timeline.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pricing-card ",
+      "type": "registry:component",
+      "title": "Pricing Card",
+      "author": "Rafael García González <rgarciagonzalez59@gmail.com>",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "app/registry/pricing-card/PricingCard.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form composable",
+      "type": "registry:hook",
+      "title": "Form Composable",
+      "description": "Utilidad para manejar formularios con soporte para Standard Schema",
+      "author": "Danilo León <dlg9806@gmail.com>",
+      "dependencies": ["@standard-schema/spec"],
+      "files": [
+        {
+          "path": "app/registry/form/useForm.ts",
+          "type": "registry:hook"
         }
       ]
     }

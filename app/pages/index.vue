@@ -2,6 +2,7 @@
 definePageMeta({
   layout: 'default',
   name: 'index',
+  scrollToTop: true,
 })
 </script>
 

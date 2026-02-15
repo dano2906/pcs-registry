@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Typography from '~/registry/typhography/Typography.vue'
+import Typography from '~/registry/typography/Typography.vue'
 
 interface Props {
   dependencies: Dependency[]
