@@ -3,15 +3,8 @@
   "name": "timeline",
   "type": "registry:component",
   "title": "Timeline",
-  "author": "Carolina Lorenzo <lolalpa05@gmail.com>",
-  "description": "Un componente para mostrar eventos en orden cronológico.",
-  "registryDependencies": [
-    "button",
-    "badge"
-  ],
-  "dependencies": [
-    "lucide-vue-next"
-  ],
+  "author": "Rafael García González <rgarciagonzalez59@gmail.com>",
+  "registryDependencies": [],
   "files": [
     {
       "path": "app/registry/timeline/Timeline.vue",

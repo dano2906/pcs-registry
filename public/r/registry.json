@@ -197,6 +197,19 @@
       ]
     },
     {
+      "name": "timeline",
+      "type": "registry:component",
+      "title": "Timeline",
+      "author": "Rafael García González <rgarciagonzalez59@gmail.com>",
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "app/registry/timeline/Timeline.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "pricing-card ",
       "type": "registry:component",
       "title": "Pricing Card",
@@ -206,6 +219,20 @@
         {
           "path": "app/registry/pricing-card/PricingCard.vue",
           "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form composable",
+      "type": "registry:hook",
+      "title": "Form Composable",
+      "description": "Utilidad para manejar formularios con soporte para Standard Schema",
+      "author": "Danilo León <dlg9806@gmail.com>",
+      "dependencies": ["@standard-schema/spec"],
+      "files": [
+        {
+          "path": "app/registry/form/useForm.ts",
+          "type": "registry:hook"
         }
       ]
     }
