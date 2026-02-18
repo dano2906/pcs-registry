@@ -235,6 +235,19 @@
           "type": "registry:hook"
         }
       ]
+    },
+    {
+      "name": "hyper-text",
+      "type": "registry:component",
+      "title": "Hyper Text",
+      "description": "Compnente de texto con animaciones",
+      "author": "Danilo León <dlg9806@gmail.com>",
+      "files": [
+        {
+          "path": "app/registry/hyper-text/HyperText.vue",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }
