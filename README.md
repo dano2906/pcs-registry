@@ -9,6 +9,11 @@
 ✅ useForm 0.3
 ✅ Timeline (https://ui.8starlabs.com/docs/components/timeline)
 ✅ Hyper Text
+⏱️ Form
+    -checkbox
+    -radio button group
+    -date
+    -url
 ⏱️ Credit card
 ⏱️ Table 0.4
 ⏱️ Currency input

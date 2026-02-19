@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import AsyncMultiSelect from '@/registry/async-multi-select/AsyncMultiSelect.vue'
+import AsyncSelectSimple from '@/registry/async-multi-select/AsyncSelectSimple.vue'
 
 const registryDependenciesAsync = [
   { text: 'command' },
@@ -59,9 +60,10 @@ const data = [{
   </PartialsSection>
   <PartialsSection component-name="async-multi-select" description="Select con posibilidad de seleccionar varias opciones desde una url asíncronamente." title="Multi Select Asíncrono" :registry-dependencies="registryDependenciesAsync">
     <template #example>
-      <div class="flex flex-row flex-wrap items-start justify-start gap-2">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
         <AsyncMultiSelect v-model="selectedAsyncValues" url="https://dummyjson.com/products" source-key="products" k="id" v="title" class="w-full max-w-xs" />
         <AsyncMultiSelect v-model="selectedAsyncValues2" url="https://jsonplaceholder.typicode.com/todos" k="id" v="title" class="w-full max-w-xs" />
+        <AsyncSelectSimple url="https://jsonplaceholder.typicode.com/todos" value-key="id" label-key="title" />
       </div>
     </template>
   </PartialsSection>

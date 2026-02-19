@@ -120,6 +120,10 @@
       "registryDependencies": ["command", "button", "https://https://dano-registry.vercel.app/r/typography.json", "https://https://dano-registry.vercel.app/r/loading-swap.json"],
       "files": [
         {
+          "path": "app/registry/async-multi-select/AsyncSelectSimple.vue",
+          "type": "registry:ui"
+        },
+        {
           "path": "app/registry/async-multi-select/AsyncMultiSelect.vue",
           "type": "registry:ui"
         },
