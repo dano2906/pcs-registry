@@ -116,7 +116,6 @@ function selectCountry(c: Country) {
         :placeholder
         :value="phone"
         class="flex-1 px-4 py-3 rounded-l-none rounded-r-sm border-none outline-none ring-none"
-        required
         @update:model-value="onInput"
       />
     </div>

@@ -57,7 +57,7 @@ function getSymbol(code: string): string | undefined {
         variant="outline"
         role="combobox"
         :aria-expanded="open"
-        class="w-full max-w-xs justify-between"
+        class="w-full max-w-xl justify-between"
       >
         <span class="truncate font-semibold">{{
           model

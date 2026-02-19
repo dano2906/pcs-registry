@@ -2,45 +2,48 @@ import type { StandardSchemaV1 } from '@standard-schema/spec'
 import type { AcceptType } from '../file-input/file-input'
 import type { useForm } from './useForm'
 
-interface InputText {
+interface CommonConfig {
+  wrapperClass?: string
+  description?: string
+  orientation: 'horizontal' | 'vertical'
   name: string
   label: string
+}
+
+// 1. Inputs básicos que solo añaden type y placeholder
+interface InputText extends CommonConfig {
   type: 'text'
   placeholder: string
 }
 
-interface Textarea {
-  name: string
-  label: string
-  type: 'textarea'
-  placeholder: string
-}
-
-interface InputPassword {
-  name: string
-  label: string
+interface InputPassword extends CommonConfig {
   type: 'password'
   placeholder: string
 }
 
-interface InputEmail {
-  name: string
-  label: string
+interface InputEmail extends CommonConfig {
   type: 'email'
   placeholder: string
 }
 
-interface Select {
-  name: string
-  label: string
+interface TelInput extends CommonConfig {
+  type: 'tel'
+  placeholder?: string
+}
+
+// 2. Componentes de texto largo o selección
+interface Textarea extends CommonConfig {
+  type: 'textarea'
+  placeholder: string
+}
+
+interface Select extends CommonConfig {
   type: 'select'
   options: string[]
   placeholder: string
 }
 
-interface AsyncSelect {
-  name: string
-  label: string
+interface AsyncSelect extends CommonConfig {
   type: 'async-select'
   url: string
   sourceKey: string
@@ -53,34 +56,22 @@ interface AsyncSelect {
   }
 }
 
-interface Checkbox {
-  name: string
-  label: string
-  type: 'checkbox'
-  checked?: boolean
-}
-
-interface NumberField {
-  name: string
-  label: string
+// 3. Componentes numéricos y financieros
+interface NumberField extends CommonConfig {
   type: 'number-field'
   min?: number
   max?: number
   default?: number
 }
 
-interface Numeric {
-  name: string
-  label: string
+interface Numeric extends CommonConfig {
   type: 'numeric'
   min?: number
   max?: number
   step?: number
 }
 
-interface Currency {
-  name: string
-  label: string
+interface Currency extends CommonConfig {
   type: 'currency'
   lang: Intl.UnicodeBCP47LocaleIdentifier
   config?: {
@@ -90,26 +81,37 @@ interface Currency {
   }
 }
 
-interface TelInput {
-  name: string
-  label: string
-  type: 'tel'
-  placeholder?: string
+// 4. Casos especiales (Restricción de orientación o archivos)
+interface Checkbox extends Omit<CommonConfig, 'orientation'> {
+  type: 'checkbox'
+  orientation: 'horizontal'
+  checked?: boolean
 }
-interface FileInput {
-  name: string
-  label: string
+
+interface FileInput extends CommonConfig {
   type: 'file'
   maxSize?: number
-  accept?: AcceptType[]
+  accept?: AcceptType[] // Asumiendo string[] o tu tipo AcceptType
   multiple?: boolean
 }
 
-export type FormContext<T extends StandardSchemaV1 = any> = ReturnType<typeof useForm<T>>
-
-export type Field = InputText | Textarea | InputPassword | InputEmail | Select | AsyncSelect | Checkbox | NumberField | Numeric | Currency | TelInput | FileInput
+export type Field
+  = | InputText
+    | Textarea
+    | InputPassword
+    | InputEmail
+    | Select
+    | AsyncSelect
+    | Checkbox
+    | NumberField
+    | Numeric
+    | Currency
+    | TelInput
+    | FileInput
 
 export interface FormBuilderProps {
   fields: Field[]
   errors?: Record<string, string>
 }
+
+export type FormContext<T extends StandardSchemaV1 = any> = ReturnType<typeof useForm<T>>

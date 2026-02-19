@@ -28,27 +28,32 @@ const formZod = useForm(userSchemaZod, {
 })
 
 const formShape: Field[] = [{
+  orientation: 'vertical',
   type: 'select',
   name: 'role',
   label: 'Mi selección',
   options: ['client', 'guess'],
   placeholder: 'Label option',
 }, {
+  orientation: 'vertical',
   type: 'text',
   label: 'Name',
   name: 'name',
   placeholder: 'Dano León',
 }, {
+  orientation: 'vertical',
   type: 'email',
   label: 'Email',
   name: 'email',
   placeholder: 'danoleon@gmail.com',
 }, {
+  orientation: 'vertical',
   type: 'password',
   label: 'Password',
   name: 'password',
   placeholder: '********',
 }, {
+  orientation: 'vertical',
   type: 'async-select',
   label: 'Productos',
   url: 'https://dummyjson.com/products',
@@ -57,6 +62,7 @@ const formShape: Field[] = [{
   name: 'products',
   sourceKey: 'products',
 }, {
+  orientation: 'vertical',
   type: 'number-field',
   label: 'Age',
   name: 'age',
@@ -64,6 +70,7 @@ const formShape: Field[] = [{
   max: 100,
   default: 18,
 }, {
+  orientation: 'vertical',
   type: 'numeric',
   label: 'Height',
   name: 'height',
@@ -71,6 +78,7 @@ const formShape: Field[] = [{
   min: 50,
   max: 250,
 }, {
+  orientation: 'vertical',
   type: 'currency',
   label: 'Country currency',
   name: 'currency',
@@ -81,30 +89,36 @@ const formShape: Field[] = [{
     emptyState: 'No currencies available',
   },
 }, {
+  orientation: 'vertical',
   type: 'tel',
   label: 'Phone',
   name: 'phone',
 }, {
+  orientation: 'horizontal',
   type: 'checkbox',
   label: 'Is Admin?',
   name: 'isAdmin',
 }, {
+  orientation: 'vertical',
   type: 'textarea',
   label: 'Address',
   name: 'address',
   placeholder: 'Personal adress',
+  wrapperClass: 'col-span-2',
 }, {
+  orientation: 'vertical',
   type: 'file',
   label: 'Documents',
   name: 'docs',
   accept: ['image/*'],
+  wrapperClass: 'col-span-2',
 }]
 </script>
 
 <template>
-  <PartialsSection id="#form-manager" component-name="useForm" description="Composable para manejar formularios" title="useForm" :registry-dependencies="[]">
+  <PartialsSection id="#form-manager" component-name="form" description="Composable generar y validar formularios" title="useForm + Form" :registry-dependencies="[]">
     <template #example>
-      <FormBuilder :form="formZod" :fields="formShape">
+      <FormBuilder :form="formZod" :fields="formShape" form-class="grid grid-cols-2 gap-6">
         <template #actions>
           <Button type="button" variant="secondary" @click="formZod.handleSubmit">
             Other Button

@@ -10,10 +10,15 @@
 ✅ Timeline (https://ui.8starlabs.com/docs/components/timeline)
 ✅ Hyper Text
 ⏱️ Form
-    -checkbox
+    -switch
+    -slider
     -radio button group
     -date
     -url
+    -fieldset
+    -custom render with slots
+⏱️ Choice Card
+⏱️ Avatar
 ⏱️ Credit card
 ⏱️ Table 0.4
 ⏱️ Currency input
