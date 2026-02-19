@@ -10,8 +10,6 @@
 ✅ Timeline (https://ui.8starlabs.com/docs/components/timeline)
 ✅ Hyper Text
 ⏱️ Form
-    -switch
-    -slider
     -radio button group
     -date
     -url

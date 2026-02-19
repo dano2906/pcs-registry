@@ -65,8 +65,8 @@ const { buildAccept, clean, dragging, getFileKind, inputRef, onDrag, onDrop, onI
       }"
       @click="openPicker"
     >
-      <span :class="[disabled ? 'text-muted-foreground' : 'text-accent']">Subir archivos</span>
-      <span class="text-sm" :class="[disabled ? 'text-muted-foreground' : 'text-accent']">Arrastre o haga click</span>
+      <span :class="[disabled ? 'text-muted-foreground' : 'text-foreground']">Subir archivos</span>
+      <span class="text-sm" :class="[disabled ? 'text-muted-foreground' : 'text-foreground']">Arrastre o haga click</span>
 
       <div class="size-32 relative group shadow hover:shadow-none rounded-sm">
         <div class="absolute inset-0 border-2 border-dashed border-border rounded-sm" />

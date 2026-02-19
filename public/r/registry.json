@@ -252,6 +252,19 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "slider-range",
+      "type": "registry:component",
+      "title": "Slider",
+      "description": "Compnente de slider con soporte para rangos",
+      "author": "Danilo León <dlg9806@gmail.com>",
+      "files": [
+        {
+          "path": "app/registry/slider-range/SliderRange.vue",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

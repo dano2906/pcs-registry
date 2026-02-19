@@ -14,12 +14,18 @@ const userSchemaZod = z.object({
   adress: z.string().max(100),
   height: z.number().min(50).max(250),
   age: z.number().min(1).max(100),
+  verifyEmailAddress: z.boolean(),
+  currency: z.string(),
+  phone: z.string(),
+  docs: z.string(),
+  income: z.array(z.number()),
 })
 
 const formZod = useForm(userSchemaZod, {
   name: 'Zod Form',
   initialValues: {
     isAdmin: false,
+    income: [100, 500],
   },
   mode: 'change',
   onSubmit: async (data) => {
@@ -94,10 +100,24 @@ const formShape: Field[] = [{
   label: 'Phone',
   name: 'phone',
 }, {
+  orientation: 'vertical',
+  type: 'slider',
+  label: 'Income range',
+  name: 'income',
+  min: 0,
+  max: 1200,
+  step: 100,
+  stepTicks: true,
+}, {
   orientation: 'horizontal',
   type: 'checkbox',
   label: 'Is Admin?',
   name: 'isAdmin',
+}, {
+  orientation: 'horizontal',
+  type: 'switch',
+  label: 'Verify email address',
+  name: 'verifyEmailAddress',
 }, {
   orientation: 'vertical',
   type: 'textarea',

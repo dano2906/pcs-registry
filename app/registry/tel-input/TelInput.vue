@@ -89,7 +89,7 @@ function selectCountry(c: Country) {
 </script>
 
 <template>
-  <div ref="target" class="relative w-full max-w-md">
+  <div ref="target" class="relative w-full">
     <div class="flex h-auto border items-center rounded-sm">
       <Button
         type="button"

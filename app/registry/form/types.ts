@@ -5,6 +5,7 @@ import type { useForm } from './useForm'
 interface CommonConfig {
   wrapperClass?: string
   description?: string
+  disabled?: boolean
   orientation: 'horizontal' | 'vertical'
   name: string
   label: string
@@ -91,8 +92,23 @@ interface Checkbox extends Omit<CommonConfig, 'orientation'> {
 interface FileInput extends CommonConfig {
   type: 'file'
   maxSize?: number
-  accept?: AcceptType[] // Asumiendo string[] o tu tipo AcceptType
+  accept?: AcceptType[]
   multiple?: boolean
+}
+
+interface Switch extends CommonConfig {
+  type: 'switch'
+  orientation: 'horizontal'
+  checked?: boolean
+}
+
+interface Slider extends CommonConfig {
+  type: 'slider'
+  stepTicks?: boolean
+  min?: number
+  max?: number
+  step?: number
+  defaultValue?: number
 }
 
 export type Field
@@ -108,6 +124,8 @@ export type Field
     | Currency
     | TelInput
     | FileInput
+    | Switch
+    | Slider
 
 export interface FormBuilderProps {
   fields: Field[]

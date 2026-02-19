@@ -10,11 +10,13 @@ import {
 } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import AsyncSelectSimple from '../async-multi-select/AsyncSelectSimple.vue'
 import CurrencySelector from '../currency-selector/CurrencySelector.vue'
 import InputPassword from '../input-password/InputPassword.vue'
 import NumberInput from '../number-input/NumberInput.vue'
+import SliderRange from '../slider-range/SliderRange.vue'
 import TelInput from '../tel-input/TelInput.vue'
 
 const { fields, form, formClass } = defineProps<{
@@ -50,6 +52,7 @@ function handleBlur(name: string) {
           v-if="field.type === 'select'"
           :id="field.name"
           :model-value="getValue(field.name)"
+          :disabled="field.disabled"
           @update:model-value="(val) => handleChange(field.name, val)"
         >
           <SelectTrigger class="w-full" @blur="handleBlur(field.name)">
@@ -77,6 +80,7 @@ function handleBlur(name: string) {
           :source-key="field.sourceKey"
           :value-key="String(field.k)"
           :label-key="String(field.v)"
+          :disabled="field.disabled"
           @update:model-value="(val) => handleChange(field.name, val)"
         />
 
@@ -84,6 +88,7 @@ function handleBlur(name: string) {
           v-else-if="field.type === 'text' || field.type === 'email'"
           :id="field.name"
           :type="field.type"
+          :disabled="field.disabled"
           :model-value="getValue(field.name)"
           :placeholder="field.placeholder"
           @update:model-value="(val) => handleChange(field.name, val)"
@@ -93,6 +98,7 @@ function handleBlur(name: string) {
         <InputPassword
           v-else-if="field.type === 'password'"
           :id="field.name"
+          :disabled="field.disabled"
           :model-value="getValue(field.name)"
           :placeholder="field.placeholder"
           @update:model-value="(val) => handleChange(field.name, val)"
@@ -103,6 +109,7 @@ function handleBlur(name: string) {
           v-else-if="field.type === 'textarea'"
           :id="field.name"
           :type="field.type"
+          :disabled="field.disabled"
           :model-value="getValue(field.name)"
           :placeholder="field.placeholder"
           class="resize-none"
@@ -113,6 +120,16 @@ function handleBlur(name: string) {
         <Checkbox
           v-else-if="field.type === 'checkbox'"
           :id="field.name"
+          :disabled="field.disabled"
+          :model-value="getValue(field.name)"
+          @update:model-value="(val) => handleChange(field.name, val)"
+          @blur="handleBlur(field.name)"
+        />
+
+        <Switch
+          v-else-if="field.type === 'switch'"
+          :id="field.name"
+          :disabled="field.disabled"
           :model-value="getValue(field.name)"
           @update:model-value="(val) => handleChange(field.name, val)"
           @blur="handleBlur(field.name)"
@@ -120,7 +137,7 @@ function handleBlur(name: string) {
 
         <NumberField
           v-if="field.type === 'number-field'" :id="field.name" :min="field.min" :max="field.max" :model-value="getValue(field.name)"
-          :default-value="field.default || field.min || undefined" class="w-full"
+          :default-value="field.default || field.min || undefined" class="w-full" :disabled="field.disabled"
           @update:model-value="(val) => handleChange(field.name, val)" @blur="handleBlur(field.name)"
         >
           <NumberFieldContent>
@@ -136,6 +153,7 @@ function handleBlur(name: string) {
           :step="field.step || 1"
           :min="field.min"
           :max="field.max"
+          :disabled="field.disabled"
           :model-value="getValue(field.name)"
           @update:model-value="(val) => handleChange(field.name, val)"
           @blur="handleBlur(field.name)"
@@ -147,6 +165,7 @@ function handleBlur(name: string) {
           :model-value="getValue(field.name)"
           :lang="field.lang"
           :config="field.config"
+          :disabled="field.disabled"
           @update:model-value="(val) => handleChange(field.name, val)"
           @blur="handleBlur(field.name)"
         />
@@ -156,15 +175,19 @@ function handleBlur(name: string) {
           :id="field.name"
           :placeholder="field.placeholder"
           :name="field.name"
+          :disabled="field.disabled"
           :model-value="getValue(field.name)"
           @update:model-value="(val) => handleChange(field.name, val)"
           @blur="handleBlur(field.name)"
         />
 
+        <SliderRange v-else-if="field.type === 'slider'" :id="field.name" :min="field.min" :max="field.max" :step="field.step" :model-value="getValue(field.name)" :step-ticks="field.stepTicks" @update:model-value="(val) => handleChange(field.name, val)" @blur="handleBlur(field.name)" />
+
         <FileInput
           v-else-if="field.type === 'file'"
           :id="field.name"
           :name="field.name"
+          :disabled="field.disabled"
           :model-value="getValue(field.name)"
           :accept="field.accept"
           :multiple="field.multiple"
