@@ -12,8 +12,9 @@ interface Country {
   flag: CountryCode
 }
 
-const { placeholder = 'Número de teléfono' } = defineProps<{
+const { placeholder = 'Número de teléfono', disabled = false } = defineProps<{
   placeholder?: string
+  disabled?: boolean
 }>()
 
 const model = defineModel<string>()
@@ -94,6 +95,7 @@ function selectCountry(c: Country) {
         type="button"
         class="flex items-center gap-2 px-4 py-3 rounded-none"
         variant="ghost"
+        :disabled
         @click="open = !open"
       >
         <img
@@ -115,6 +117,7 @@ function selectCountry(c: Country) {
         inputmode="numeric"
         :placeholder
         :value="phone"
+        :disabled
         class="flex-1 px-4 py-3 rounded-l-none rounded-r-sm border-none outline-none ring-none"
         @update:model-value="onInput"
       />

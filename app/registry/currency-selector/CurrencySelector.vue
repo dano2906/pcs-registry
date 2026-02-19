@@ -17,12 +17,13 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover'
 
-const { lang = 'es-ES', config = {
+const { lang = 'es-ES', disabled = false, config = {
   placeholder: 'Seleccione una moneda',
   searchPlaceholder: 'Buscar una moneda',
   emptyState: 'No hay monedas disponibles',
 } } = defineProps<{
   lang?: string
+  disabled?: boolean
   config?: {
     placeholder?: string
     searchPlaceholder?: string
@@ -58,6 +59,7 @@ function getSymbol(code: string): string | undefined {
         role="combobox"
         :aria-expanded="open"
         class="w-full max-w-xl justify-between"
+        :disabled
       >
         <span class="truncate font-semibold">{{
           model
