@@ -1,49 +1,71 @@
 <script setup lang="ts">
+import type { DateValue } from '@internationalized/date'
+import { DateFormatter, getLocalTimeZone, parseDate, today } from '@internationalized/date'
+
 import { CalendarIcon } from 'lucide-vue-next'
-import { computed } from 'vue'
 import { Button } from '@/components/ui/button'
 import { Calendar } from '@/components/ui/calendar'
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
 import { cn } from '@/lib/utils'
 
 const props = defineProps<{
-  modelValue?: any
+  modelValue?: string
   placeholder?: string
-  disabled?: boolean
 }>()
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits<{
+  (e: 'update:modelValue', payload: string): void
+}>()
 
-const date = computed({
-  get: () => props.modelValue ? new Date(props.modelValue) : undefined,
-  set: val => emit('update:modelValue', val),
+const defaultPlaceholder = today(getLocalTimeZone())
+const date = ref<DateValue>()
+
+const df = new DateFormatter('en-US', {
+  dateStyle: 'long',
 })
 
-function formatDate(d: any) {
-  if (!d)
-    return ''
-  const dateObj = new Date(d)
-  return dateObj.toLocaleDateString()
-}
+watch(() => props.modelValue, (newVal) => {
+  if (newVal) {
+    try {
+      date.value = parseDate(newVal)
+    }
+    catch {
+      // Ignore invalid date strings
+    }
+  }
+  else {
+    date.value = undefined
+  }
+}, { immediate: true })
+
+watch(date, (newVal) => {
+  emit('update:modelValue', newVal ? newVal.toString() : '')
+})
 </script>
 
 <template>
-  <Popover>
+  <Popover v-slot="{ close }">
     <PopoverTrigger as-child>
       <Button
         variant="outline"
-        :class="cn(
-          'w-full justify-start text-left font-normal',
-          !modelValue && 'text-muted-foreground',
-        )"
-        :disabled="disabled"
+        :class="cn('w-[240px] justify-start text-left font-normal', !date && 'text-muted-foreground')"
       >
-        <CalendarIcon class="mr-2 h-4 w-4" />
-        {{ modelValue ? formatDate(modelValue) : (placeholder || 'Pick a date') }}
+        <CalendarIcon />
+        {{ date ? df.format(date.toDate(getLocalTimeZone())) : props.placeholder ?? "Pick a date" }}
       </Button>
     </PopoverTrigger>
-    <PopoverContent class="w-auto p-0">
-      <Calendar v-model="date" initial-focus />
+    <PopoverContent class="w-auto p-0" align="start">
+      <Calendar
+        v-model="date"
+        :default-placeholder="defaultPlaceholder"
+        layout="month-and-year"
+        initial-focus
+        @update:model-value="close"
+      />
     </PopoverContent>
   </Popover>
 </template>

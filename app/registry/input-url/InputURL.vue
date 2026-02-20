@@ -4,44 +4,64 @@ import { computed } from 'vue'
 
 interface Props {
   protocol?: string
-  hint: string
+  hint?: string
   placeholder?: string
+  modelValue?: string
+  disabled?: boolean
+  id?: string
+  name?: string
 }
 
-const { protocol = 'https://', hint, placeholder = 'example.com' } = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  protocol: 'https://',
+  placeholder: 'example.com',
+  modelValue: '',
+})
 
-const model = defineModel<string | undefined>()
+const emit = defineEmits<{
+  (e: 'update:modelValue', payload: string): void
+}>()
+
 const pathname = computed({
   get() {
-    if (!model.value)
+    if (!props.modelValue)
       return ''
-    return model.value.startsWith(protocol)
-      ? model.value.slice(protocol.length)
-      : model.value
+    return props.modelValue.startsWith(props.protocol)
+      ? props.modelValue.slice(props.protocol.length)
+      : props.modelValue
   },
   set(newValue) {
-    model.value = newValue ? `${protocol}${newValue}` : undefined
+    emit('update:modelValue', newValue ? `${props.protocol}${newValue}` : '')
   },
 })
 </script>
 
 <template>
   <InputGroup>
-    <InputGroupInput v-model="pathname" :placeholder="placeholder" class="pl-1" />
+    <InputGroupInput
+      :id="props.id"
+      v-model="pathname"
+      :name="props.name"
+      :placeholder="props.placeholder"
+      :disabled="props.disabled"
+      class="pl-1"
+    />
 
     <InputGroupAddon>
-      <InputGroupText>{{ protocol }}</InputGroupText>
+      <InputGroupText>{{ props.protocol }}</InputGroupText>
     </InputGroupAddon>
 
     <InputGroupAddon align="inline-end">
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger as-child>
-            <InputGroupButton class="rounded-full" size="icon-xs">
+            <InputGroupButton class="rounded-full" size="icon-xs" :disabled="props.disabled">
               <InfoIcon class="size-4" />
             </InputGroupButton>
           </TooltipTrigger>
-          <TooltipContent>{{ hint }}</TooltipContent>
+          <TooltipContent v-if="props.hint">
+            {{ props.hint }}
+          </TooltipContent>
         </Tooltip>
       </TooltipProvider>
     </InputGroupAddon>
