@@ -291,6 +291,21 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "auth-modal",
+      "type": "registry:component",
+      "title": "Auth Modal",
+      "description": "Modal con formulario para autenticación",
+      "author": "Danilo León <dlg9806@gmail.com>",
+      "dependencies": ["motion-v", "valibot"],
+      "registryDependencies": ["button", "field", "input-group", "https://https://dano-registry.vercel.app/r/loading-swap.json", "https://https://dano-registry.vercel.app/r/input-password.json"],
+      "files": [
+        {
+          "path": "app/registry/auth-modal/AuthModal.vue",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

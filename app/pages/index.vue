@@ -8,6 +8,7 @@ definePageMeta({
 
 <template>
   <main class="w-full py-4 px-2 space-y-14">
+    <SectionsAuthModal />
     <SectionsForm />
     <!-- <SectionsBluryText />
     <SectionsHyperText />

@@ -25,6 +25,7 @@ function reverse() {
         :title="type === 'password' ? 'Show password' : 'Hide password'"
         size="icon-xs"
         :disabled
+        type="button"
         @click="reverse"
       >
         <Eye v-if="type === 'password'" />
