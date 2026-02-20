@@ -9,10 +9,11 @@
 ✅ useForm 0.3
 ✅ Timeline (https://ui.8starlabs.com/docs/components/timeline)
 ✅ Hyper Text
+✅ Blury Text
+✅ Input URL
 ⏱️ Form
     -radio button group
     -date
-    -url
     -fieldset
     -custom render with slots
 ⏱️ Choice Card
