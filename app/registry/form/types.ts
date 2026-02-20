@@ -118,6 +118,26 @@ interface InputURL extends CommonConfig {
   protocol?: string
 }
 
+interface RadioGroup extends CommonConfig {
+  type: 'radio-group'
+  options: { title: string, subtitle?: string, value: string }[]
+}
+
+interface DatePicker extends CommonConfig {
+  type: 'date'
+  placeholder?: string
+}
+
+interface CustomField extends CommonConfig {
+  type: 'custom'
+  slotName: string
+}
+
+interface Fieldset extends CommonConfig {
+  type: 'fieldset'
+  fields: Field[]
+}
+
 export type Field
   = | InputText
     | Textarea
@@ -134,6 +154,10 @@ export type Field
     | FileInput
     | Switch
     | Slider
+    | RadioGroup
+    | DatePicker
+    | CustomField
+    | Fieldset
 
 export interface FormBuilderProps {
   fields: Field[]

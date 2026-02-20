@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import type { Field } from '~/registry/form/types'
 import { z } from 'zod'
+import { Button } from '~/components/ui/button'
 import FormBuilder from '~/registry/form/FormBuilder.vue'
 import { useForm } from '~/registry/form/useForm'
 
@@ -10,18 +11,19 @@ const userSchemaZod = z.object({
   name: z.string(),
   password: z.string().min(8),
   isAdmin: z.boolean(),
-  products: z.string(),
-  adress: z.string().max(100),
+  products: z.string().optional(),
+  address: z.string().max(100),
   height: z.number().min(50).max(250),
   age: z.number().min(1).max(100),
   verifyEmailAddress: z.boolean(),
-  currency: z.string(),
-  phone: z.string(),
-  docs: z.string(),
+  currency: z.string().optional(),
+  phone: z.string().optional(),
+  docs: z.any().optional(),
   income: z.array(z.number()),
-  url: z.url({
-    protocol: /^https$/,
-  }).includes('.com'),
+  url: z.string().url().optional(),
+  gender: z.enum(['male', 'female', 'other']),
+  birthday: z.string().optional(),
+  customField: z.string().optional(),
 })
 
 const formZod = useForm(userSchemaZod, {
@@ -29,6 +31,15 @@ const formZod = useForm(userSchemaZod, {
   initialValues: {
     isAdmin: false,
     income: [100, 500],
+    gender: 'male',
+    address: '',
+    name: '',
+    email: '',
+    password: '',
+    height: 170,
+    age: 18,
+    verifyEmailAddress: false,
+    role: 'client',
   },
   mode: 'change',
   onSubmit: async (data) => {
@@ -37,24 +48,51 @@ const formZod = useForm(userSchemaZod, {
 })
 
 const formShape: Field[] = [{
+  type: 'fieldset',
+  name: 'personal_info',
+  label: 'Personal Information',
+  orientation: 'vertical',
+  fields: [
+    {
+      orientation: 'vertical',
+      type: 'text',
+      label: 'Name',
+      name: 'name',
+      placeholder: 'Dano León',
+    },
+    {
+      orientation: 'vertical',
+      type: 'email',
+      label: 'Email',
+      name: 'email',
+      placeholder: 'danoleon@gmail.com',
+    },
+    {
+      orientation: 'vertical',
+      type: 'radio-group',
+      label: 'Gender',
+      name: 'gender',
+      options: [
+        { title: 'Male', value: 'male' },
+        { title: 'Female', value: 'female' },
+        { title: 'Other', value: 'other' },
+      ],
+    },
+    {
+      orientation: 'vertical',
+      type: 'date',
+      label: 'Birthday',
+      name: 'birthday',
+      placeholder: 'Select your birthday',
+    },
+  ],
+}, {
   orientation: 'vertical',
   type: 'select',
   name: 'role',
   label: 'Mi selección',
   options: ['client', 'guess'],
   placeholder: 'Label option',
-}, {
-  orientation: 'vertical',
-  type: 'text',
-  label: 'Name',
-  name: 'name',
-  placeholder: 'Dano León',
-}, {
-  orientation: 'vertical',
-  type: 'email',
-  label: 'Email',
-  name: 'email',
-  placeholder: 'danoleon@gmail.com',
 }, {
   orientation: 'vertical',
   type: 'password',
@@ -129,10 +167,16 @@ const formShape: Field[] = [{
   name: 'verifyEmailAddress',
 }, {
   orientation: 'vertical',
+  type: 'custom',
+  label: 'Custom Field with Slot',
+  name: 'customField',
+  slotName: 'my-custom-slot',
+}, {
+  orientation: 'vertical',
   type: 'textarea',
   label: 'Address',
   name: 'address',
-  placeholder: 'Personal adress',
+  placeholder: 'Personal address',
   wrapperClass: 'col-span-2',
 }, {
   orientation: 'vertical',
@@ -148,6 +192,19 @@ const formShape: Field[] = [{
   <PartialsSection id="#form-manager" component-name="form" description="Composable generar y validar formularios" title="useForm + Form" :registry-dependencies="[]">
     <template #example>
       <FormBuilder :form="formZod" :fields="formShape" form-class="grid grid-cols-2 gap-6">
+        <template #my-custom-slot="{ field, form }">
+          <div class="border p-4 rounded-lg bg-muted/50 border-dashed border-primary/50">
+            <Label :for="field.name" class="text-xs font-bold uppercase text-primary mb-2 block">{{ field.label }}</Label>
+            <Input
+              :id="field.name"
+              :name="field.name"
+              class="w-full bg-transparent outline-none border-b border-primary/20 focus:border-primary transition-colors pb-1"
+              :value="form.fields.value[field.name]"
+              placeholder="Type here..."
+              @input="(e: Event) => form.setFieldValue(field.name, (e.target as HTMLInputElement).value)"
+            />
+          </div>
+        </template>
         <template #actions>
           <Button type="button" variant="secondary" @click="formZod.handleSubmit">
             Other Button
