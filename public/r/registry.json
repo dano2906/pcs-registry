@@ -265,6 +265,32 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "blury-text",
+      "type": "registry:component",
+      "title": "Blury text",
+      "description": "Compnente de animación de texto con blur",
+      "author": "Danilo León <dlg9806@gmail.com>",
+      "files": [
+        {
+          "path": "app/registry/blury-text/BluryText.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-url",
+      "type": "registry:component",
+      "title": "Input URL",
+      "description": "Input para URLs",
+      "author": "Danilo León <dlg9806@gmail.com>",
+      "files": [
+        {
+          "path": "app/registry/input-url/InputURL.vue",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

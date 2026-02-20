@@ -19,6 +19,9 @@ const userSchemaZod = z.object({
   phone: z.string(),
   docs: z.string(),
   income: z.array(z.number()),
+  url: z.url({
+    protocol: /^https$/,
+  }).includes('.com'),
 })
 
 const formZod = useForm(userSchemaZod, {
@@ -99,6 +102,12 @@ const formShape: Field[] = [{
   type: 'tel',
   label: 'Phone',
   name: 'phone',
+}, {
+  type: 'url',
+  hint: 'Dont type protocol, only pathname.',
+  label: 'Website URL',
+  name: 'url',
+  orientation: 'vertical',
 }, {
   orientation: 'vertical',
   type: 'slider',

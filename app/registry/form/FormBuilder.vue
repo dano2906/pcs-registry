@@ -15,6 +15,7 @@ import { Textarea } from '@/components/ui/textarea'
 import AsyncSelectSimple from '../async-multi-select/AsyncSelectSimple.vue'
 import CurrencySelector from '../currency-selector/CurrencySelector.vue'
 import InputPassword from '../input-password/InputPassword.vue'
+import InputURL from '../input-url/InputURL.vue'
 import NumberInput from '../number-input/NumberInput.vue'
 import SliderRange from '../slider-range/SliderRange.vue'
 import TelInput from '../tel-input/TelInput.vue'
@@ -177,6 +178,18 @@ function handleBlur(name: string) {
           :name="field.name"
           :disabled="field.disabled"
           :model-value="getValue(field.name)"
+          @update:model-value="(val) => handleChange(field.name, val)"
+          @blur="handleBlur(field.name)"
+        />
+
+        <InputURL
+          v-else-if="field.type === 'url'"
+          :id="field.name"
+          :placeholder="field.placeholder"
+          :name="field.name"
+          :disabled="field.disabled"
+          :model-value="getValue(field.name)"
+          :hint="field.hint"
           @update:model-value="(val) => handleChange(field.name, val)"
           @blur="handleBlur(field.name)"
         />

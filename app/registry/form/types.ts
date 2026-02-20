@@ -111,11 +111,19 @@ interface Slider extends CommonConfig {
   defaultValue?: number
 }
 
+interface InputURL extends CommonConfig {
+  type: 'url'
+  placeholder?: string
+  hint: string
+  protocol?: string
+}
+
 export type Field
   = | InputText
     | Textarea
     | InputPassword
     | InputEmail
+    | InputURL
     | Select
     | AsyncSelect
     | Checkbox

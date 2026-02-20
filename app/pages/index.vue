@@ -9,6 +9,7 @@ definePageMeta({
 <template>
   <main class="w-full py-4 px-2 space-y-14">
     <SectionsForm />
+    <!-- <SectionsBluryText />
     <SectionsHyperText />
     <SectionsCurrencySelector />
     <SectionsTypography />
@@ -21,6 +22,6 @@ definePageMeta({
     <SectionsFileInput />
     <SectionsTimeline />
     <SectionsMarquee />
-    <SectionsPricingCard />
+    <SectionsPricingCard /> -->
   </main>
 </template>
