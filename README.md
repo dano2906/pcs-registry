@@ -11,11 +11,7 @@
 ✅ Hyper Text
 ✅ Blury Text
 ✅ Input URL
-⏱️ Form
-    -radio button group
-    -date
-    -fieldset
-    -custom render with slots
+✅ Form
 ⏱️ Choice Card
 ⏱️ Avatar
 ⏱️ Credit card

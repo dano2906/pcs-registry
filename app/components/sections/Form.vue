@@ -20,26 +20,16 @@ const userSchemaZod = z.object({
   phone: z.string().optional(),
   docs: z.any().optional(),
   income: z.array(z.number()),
-  url: z.string().url().optional(),
+  url: z.url(),
   gender: z.enum(['male', 'female', 'other']),
-  birthday: z.string().optional(),
+  birthday: z.string(),
   customField: z.string().optional(),
 })
 
 const formZod = useForm(userSchemaZod, {
   name: 'Zod Form',
   initialValues: {
-    isAdmin: false,
     income: [100, 500],
-    gender: 'male',
-    address: '',
-    name: '',
-    email: '',
-    password: '',
-    height: 170,
-    age: 18,
-    verifyEmailAddress: false,
-    role: 'client',
   },
   mode: 'change',
   onSubmit: async (data) => {
