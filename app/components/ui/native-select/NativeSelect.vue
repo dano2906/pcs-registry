@@ -9,7 +9,7 @@ defineOptions({
   inheritAttrs: false,
 })
 
-const props = defineProps<{ modelValue?: AcceptableValue | AcceptableValue[], class?: HTMLAttributes['class'], defaultIcon?: boolean }>()
+const props = defineProps<{ modelValue?: AcceptableValue | AcceptableValue[], class?: HTMLAttributes['class'] }>()
 
 const emit = defineEmits<{
   'update:modelValue': AcceptableValue
@@ -42,11 +42,9 @@ const delegatedProps = reactiveOmit(props, 'class')
       <slot />
     </select>
     <ChevronDownIcon
-      v-if="defaultIcon"
       class="text-muted-foreground pointer-events-none absolute top-1/2 right-3.5 size-4 -translate-y-1/2 opacity-50 select-none"
       aria-hidden="true"
       data-slot="native-select-icon"
     />
-    <slot v-else name="icon" />
   </div>
 </template>

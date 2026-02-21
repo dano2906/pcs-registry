@@ -120,6 +120,10 @@
       "registryDependencies": ["command", "button", "https://https://dano-registry.vercel.app/r/typography.json", "https://https://dano-registry.vercel.app/r/loading-swap.json"],
       "files": [
         {
+          "path": "app/registry/async-multi-select/AsyncSelectSimple.vue",
+          "type": "registry:ui"
+        },
+        {
           "path": "app/registry/async-multi-select/AsyncMultiSelect.vue",
           "type": "registry:ui"
         },
@@ -233,6 +237,73 @@
         {
           "path": "app/registry/form/useForm.ts",
           "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "hyper-text",
+      "type": "registry:component",
+      "title": "Hyper Text",
+      "description": "Compnente de texto con animaciones",
+      "author": "Danilo León <dlg9806@gmail.com>",
+      "files": [
+        {
+          "path": "app/registry/hyper-text/HyperText.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider-range",
+      "type": "registry:component",
+      "title": "Slider",
+      "description": "Compnente de slider con soporte para rangos",
+      "author": "Danilo León <dlg9806@gmail.com>",
+      "files": [
+        {
+          "path": "app/registry/slider-range/SliderRange.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "blury-text",
+      "type": "registry:component",
+      "title": "Blury text",
+      "description": "Compnente de animación de texto con blur",
+      "author": "Danilo León <dlg9806@gmail.com>",
+      "files": [
+        {
+          "path": "app/registry/blury-text/BluryText.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-url",
+      "type": "registry:component",
+      "title": "Input URL",
+      "description": "Input para URLs",
+      "author": "Danilo León <dlg9806@gmail.com>",
+      "files": [
+        {
+          "path": "app/registry/input-url/InputURL.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "auth-modal",
+      "type": "registry:component",
+      "title": "Auth Modal",
+      "description": "Modal con formulario para autenticación",
+      "author": "Danilo León <dlg9806@gmail.com>",
+      "dependencies": ["motion-v", "valibot"],
+      "registryDependencies": ["button", "field", "input-group", "https://https://dano-registry.vercel.app/r/loading-swap.json", "https://https://dano-registry.vercel.app/r/input-password.json"],
+      "files": [
+        {
+          "path": "app/registry/auth-modal/AuthModal.vue",
+          "type": "registry:ui"
         }
       ]
     }

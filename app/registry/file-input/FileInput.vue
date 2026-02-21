@@ -4,10 +4,11 @@ import { Plus, Trash, Upload, X } from 'lucide-vue-next'
 import Button from '@/components/ui/button/Button.vue'
 import { useFileInput } from './useFileInput'
 
-const { multiple = true, accept = [], maxSize } = defineProps<{
+const { multiple = true, accept = [], maxSize, disabled = false } = defineProps<{
   multiple?: boolean
   accept?: AcceptType[]
   maxSize?: number
+  disabled?: boolean
 }>()
 const files = defineModel<FilePreview[]>({
   default: () => [],
@@ -19,6 +20,7 @@ const { buildAccept, clean, dragging, getFileKind, inputRef, onDrag, onDrop, onI
 <template>
   <div
     class="w-full bg-background rounded border p-4 min-h-80 relative overflow-hidden"
+    :class="[disabled ? 'cursor-not-allowed' : '']"
     @drop.prevent="onDrop"
     @dragover.prevent="onDrag"
     @dragleave="onLeave"
@@ -29,6 +31,7 @@ const { buildAccept, clean, dragging, getFileKind, inputRef, onDrag, onDrop, onI
       :multiple
       :accept="buildAccept(accept)"
       class="hidden"
+      :disabled
       @change="onInput"
     >
 
@@ -62,8 +65,8 @@ const { buildAccept, clean, dragging, getFileKind, inputRef, onDrag, onDrop, onI
       }"
       @click="openPicker"
     >
-      <span>Subir archivos</span>
-      <span class="text-sm">Arrastre o haga click</span>
+      <span :class="[disabled ? 'text-muted-foreground' : 'text-foreground']">Subir archivos</span>
+      <span class="text-sm" :class="[disabled ? 'text-muted-foreground' : 'text-foreground']">Arrastre o haga click</span>
 
       <div class="size-32 relative group shadow hover:shadow-none rounded-sm">
         <div class="absolute inset-0 border-2 border-dashed border-border rounded-sm" />

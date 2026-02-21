@@ -2,8 +2,9 @@
 import { Eye, EyeClosed } from 'lucide-vue-next'
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@/components/ui/input-group'
 
-const { placeholder } = defineProps<{
+const { placeholder, disabled = false } = defineProps<{
   placeholder?: string | undefined
+  disabled?: boolean
 }>()
 
 const field = defineModel<string | undefined>(undefined)
@@ -17,12 +18,14 @@ function reverse() {
 
 <template>
   <InputGroup>
-    <InputGroupInput v-model="field" :placeholder :type="type" />
+    <InputGroupInput v-model="field" :placeholder :type :disabled />
     <InputGroupAddon align="inline-end">
       <InputGroupButton
         :aria-label="type === 'password' ? 'Show password' : 'Hide password'"
         :title="type === 'password' ? 'Show password' : 'Hide password'"
         size="icon-xs"
+        :disabled
+        type="button"
         @click="reverse"
       >
         <Eye v-if="type === 'password'" />

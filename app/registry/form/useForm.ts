@@ -85,7 +85,7 @@ export function useForm<T extends StandardSchemaV1>(
     }
   }
 
-  const debouncedValidateField = useDebounce(validateFieldRaw, options.debounce ?? 300)
+  const debouncedValidateField = useDebounce(validateFieldRaw, options.debounce ?? 200)
 
   const setFieldValue = (path: string, value: any) => {
     set(fields.value, path, value)
@@ -183,5 +183,6 @@ export function useForm<T extends StandardSchemaV1>(
     setFieldValue,
     setFieldTouched,
     setError,
+    validateField: debouncedValidateField,
   }
 }
