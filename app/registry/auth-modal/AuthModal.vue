@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/field'
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@/components/ui/input-group'
 import { cn } from '@/lib/utils'
-import { useForm } from '../form/useForm'
+import { useForm } from '../form-builder/useForm'
 import InputPassword from '../input-password/InputPassword.vue'
 import LoadingSwap from '../loading-swap/LoadingSwap.vue'
 

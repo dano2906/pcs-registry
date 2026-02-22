@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import type { Field } from '~/registry/form/types'
+import type { Field } from '~/registry/form-builder/types'
 import { z } from 'zod'
 import { Button } from '~/components/ui/button'
 import FormBuilder from '~/registry/form/FormBuilder.vue'
-import { useForm } from '~/registry/form/useForm'
+import { useForm } from '~/registry/form-builder/useForm'
 
 const userSchemaZod = z.object({
   role: z.enum(['client', 'guess']),

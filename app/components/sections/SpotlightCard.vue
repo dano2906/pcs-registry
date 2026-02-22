@@ -9,7 +9,7 @@ import {
   SpotlightCardMultiple,
   SpotlightCardTilt,
   SpotlightCardTitle,
-} from '~/registry/spotlight-card/index'
+} from '~/registry/spotlight-card'
 </script>
 
 <template>
