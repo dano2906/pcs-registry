@@ -1,0 +1,76 @@
+# Spotlight Card
+
+Una colección de componentes de tarjetas con efectos de iluminación dinámicos que siguen el movimiento del ratón (haces de luz, degradados, brillos y efectos 3D).
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/spotlight-card.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/spotlight-card.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/spotlight-card.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { 
+  SpotlightCard, 
+  SpotlightCardHeader, 
+  SpotlightCardTitle, 
+  SpotlightCardContent 
+} from '@/registry/spotlight-card'
+</script>
+
+<template>
+  <SpotlightCard>
+    <SpotlightCardHeader>
+      <SpotlightCardTitle>Efecto Spotlight</SpotlightCardTitle>
+    </SpotlightCardHeader>
+    <SpotlightCardContent>
+      Pasa el ratón sobre esta tarjeta para ver el efecto.
+    </SpotlightCardContent>
+  </SpotlightCard>
+</template>
+```
+
+## Ejemplos
+
+::spotlight-card-demo
+::
+
+### Variantes
+
+- `SpotlightCard`: Efecto de brillo (glow) estándar.
+- `SpotlightCardBeam`: Efecto de haces de luz en cruz.
+- `SpotlightCardGradient`: Degradado multicolor que sigue al ratón.
+- `SpotlightCardMultiple`: Múltiples fuentes de luz de colores.
+- `SpotlightCardTilt`: Efecto de inclinación 3D combinado con iluminación.
+
+### Propiedades (SpotlightCard Estándar)
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `spotlightColor` | `string` | `'rgba(120, 119, 198, 0.3)'` | El color del efecto de iluminación. |
+| `borderColor` | `string` | `undefined` | Degradado o color personalizado para el borde. |
+| `borderWidth` | `number` | `1` | Grosor del borde en píxeles. |
+| `borderRadius` | `number` | `16` | Radio de las esquinas en píxeles. |
+| `glowIntensity` | `number` | `0.15` | Intensidad del brillo del foco. |
+| `class` | `string` | `undefined` | Clases CSS adicionales. |
+
+### Propiedades (Variante Tilt)
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `maxTilt` | `number` | `10` | Ángulo máximo de inclinación en grados. |
+| `perspective` | `number` | `1000` | Distancia de perspectiva 3D. |
+| `scale` | `number` | `1.02` | Factor de escala al pasar el ratón. |
+| `glareOpacity` | `number` | `0.2` | Intensidad del reflejo (glare). |

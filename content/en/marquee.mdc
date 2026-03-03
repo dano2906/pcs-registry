@@ -1,0 +1,62 @@
+# Marquee
+
+An infinite scrolling component for showcasing logos, testimonials, or features in both horizontal and vertical orientations.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/marquee.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/marquee.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/marquee.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { Marquee } from '@/registry/marquee'
+
+const logos = [
+  { name: 'Logo 1' },
+  { name: 'Logo 2' },
+  { name: 'Logo 3' },
+]
+</script>
+
+<template>
+  <Marquee :items="logos" :speed="20">
+    <template #default="{ item }">
+      <div class="px-8 py-4 font-bold">{{ item.name }}</div>
+    </template>
+  </Marquee>
+</template>
+```
+
+## Examples
+
+::marquee-demo
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `items` | `any[]` | `undefined` | The list of items to display. |
+| `repeats` | `number` | `2` | How many times to repeat the items for smooth infinite scrolling. |
+| `speed` | `number` | `30` | Animation duration in seconds. |
+| `direction` | `string` | `'normal'` | Animation direction: `'normal'` or `'reverse'`. |
+| `orientation` | `string` | `'horizontal'` | Scroll orientation: `'horizontal'` or `'vertical'`. |
+
+### Slots
+
+| Slot | Payload | Description |
+| :--- | :--- | :--- |
+| `default` | `{ item: any, index: number }` | Custom renderer for each item in the marquee. |

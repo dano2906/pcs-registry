@@ -1,0 +1,67 @@
+# Filter Selection
+
+An interactive filter component with smooth animations using `motion-v`, allowing users to select and manage multiple filters from a list.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/filter-selection.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/filter-selection.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/filter-selection.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { FilterSelection } from '@/registry/filter-selection'
+
+const activeFilters = ref(['1', '2'])
+const filters = [
+  { id: '1', label: 'Vue', color: 'text-emerald-500 border-emerald-500/20 bg-emerald-500/5' },
+  { id: '2', label: 'Nuxt', color: 'text-green-400 border-green-400/20 bg-green-400/5' },
+  { id: '3', label: 'Tailwind', color: 'text-sky-400 border-sky-400/20 bg-sky-400/5' }
+]
+</script>
+
+<template>
+  <FilterSelection 
+    v-model:activeFilters="activeFilters" 
+    :items="filters" 
+    theme="dark" 
+  />
+</template>
+```
+
+## Examples
+
+::filter-selection-demo
+::
+
+### External dependencies
+
+::deps{type="lib" :external="true" :dependencies='[{"text": "motion-v", "url": "https://motion-v.com"}]'}
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `items` | `Array` | `[]` | List of available filters. |
+| `activeFilters` | `Array` | `undefined` | Controlled list of active filter IDs. |
+| `theme` | `string` | `'dark'` | UI theme: `'dark'` or `'light'`. |
+
+### Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `@update:activeFilters` | `string[]` | Emitted when filters are updated (v-model). |
+| `@filterChange` | `string[]` | Emitted when a filter selection changes. |

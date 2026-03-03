@@ -1,0 +1,46 @@
+# Tipografía
+
+Un componente de tipografía consistente para varias variantes de texto (h1-h4, p, span, blockquote) con tamaños adaptables y estilos estándar de Shadcn UI.
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/typography.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/typography.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/typography.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { Typography } from '@/registry/typography'
+</script>
+
+<template>
+  <Typography 
+    variant="h1" 
+    text="Tipografía Moderna" 
+  />
+</template>
+```
+
+## Ejemplos
+
+::typography-demo
+::
+
+### Propiedades
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `variant` | `string` | `undefined` | La variante tipográfica: `h1`, `h2`, `h3`, `h4`, `p`, `span`, `blockquote`. |
+| `text` | `string` | `undefined` | El contenido de texto a mostrar. |

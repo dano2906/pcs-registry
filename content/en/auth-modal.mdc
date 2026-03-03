@@ -1,0 +1,71 @@
+# Auth Modal
+
+A comprehensive authentication modal with support for login, registration, and social providers.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/auth-modal.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/auth-modal.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/auth-modal.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { AuthModal } from '@/registry/auth-modal'
+
+const handleProvider = (provider: string) => {
+  console.log('Login with:', provider)
+}
+
+const handleSubmit = (data: any) => {
+  console.log('Form data:', data)
+}
+</script>
+
+<template>
+  <AuthModal 
+    @login-provider="handleProvider" 
+    @submit="handleSubmit" 
+  />
+</template>
+```
+
+## Examples
+
+::auth-modal-demo
+::
+
+### External dependencies
+
+::deps{type="lib" :external="true" :dependencies='[{"text": "motion-v", "url": "https://motion-v.com"}, {"text": "valibot", "url": "https://valibot.dev"}]'}
+::
+
+### Registry dependencies
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "button"}, {"text": "field"}, {"text": "input-group"}, {"text": "loading-swap"}, {"text": "input-password"}]'}
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `options` | `Object` | `Default labels` | Custom labels for all text elements in the modal. |
+| `socials` | `Array` | `Standard providers` | List of social providers to display (google, apple, etc). |
+
+### Events
+
+| Event | Payload | Description |
+| :--- | :--- | :--- |
+| `@loginProvider` | `string` | Emitted when a social provider button is clicked. |
+| `@submit` | `any` | Emitted when the form is successfully submitted. |

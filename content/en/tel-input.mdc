@@ -1,0 +1,61 @@
+# Tel Input
+
+A comprehensive phone number input component with country code selection, automatic formatting, and flag support.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/tel-input.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/tel-input.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/tel-input.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { TelInput } from '@/registry/tel-input'
+
+const phoneNumber = ref('')
+</script>
+
+<template>
+  <TelInput 
+    v-model="phoneNumber" 
+    placeholder="Enter phone number" 
+  />
+</template>
+```
+
+## Examples
+
+::tel-input-demo
+::
+
+### External dependencies
+
+::deps{type="lib" :external="true" :dependencies='[{"text": "libphonenumber-js", "url": "https://github.com/catamphetamine/libphonenumber-js"}, {"text": "@vueuse/core", "url": "https://vueuse.org"}]'}
+::
+
+### Registry dependencies
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "input"}, {"text": "button"}]'}
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `placeholder` | `string` | `'Número de teléfono'` | Input placeholder text. |
+| `disabled` | `boolean` | `false` | Whether the input is disabled. |
+| `v-model` | `string` | `undefined` | The formatted international phone number. |
+| `defaultCountry` | `string` | `'CU'` | Default country code (ISO 3166-1 alpha-2). |
+| `searchPlaceholder` | `string` | `'Buscar país...'` | Placeholder for the country search input. |

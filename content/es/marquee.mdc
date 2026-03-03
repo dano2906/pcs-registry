@@ -1,0 +1,62 @@
+# Marquee
+
+Un componente de desplazamiento infinito para mostrar logotipos, testimonios o características en orientaciones tanto horizontales como verticales.
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/marquee.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/marquee.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/marquee.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { Marquee } from '@/registry/marquee'
+
+const logos = [
+  { nombre: 'Logo 1' },
+  { nombre: 'Logo 2' },
+  { nombre: 'Logo 3' },
+]
+</script>
+
+<template>
+  <Marquee :items="logos" :speed="20">
+    <template #default="{ item }">
+      <div class="px-8 py-4 font-bold">{{ item.nombre }}</div>
+    </template>
+  </Marquee>
+</template>
+```
+
+## Ejemplos
+
+::marquee-demo
+::
+
+### Propiedades
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `items` | `any[]` | `undefined` | La lista de elementos a mostrar. |
+| `repeats` | `number` | `2` | Cuántas veces repetir los elementos para un desplazamiento infinito fluido. |
+| `speed` | `number` | `30` | Duración de la animación en segundos. |
+| `direction` | `string` | `'normal'` | Dirección de la animación: `'normal'` o `'reverse'`. |
+| `orientation` | `string` | `'horizontal'` | Orientación del desplazamiento: `'horizontal'` o `'vertical'`. |
+
+### Slots
+
+| Slot | Payload | Descripción |
+| :--- | :--- | :--- |
+| `default` | `{ item: any, index: number }` | Renderizador personalizado para cada elemento en el marquee. |

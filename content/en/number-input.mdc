@@ -1,0 +1,62 @@
+# Number Input
+
+An enhanced numeric input field that handles invalid values and enforces constraints like min/max and custom conditions.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/number-input.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/number-input.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/number-input.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { NumberInput } from '@/registry/number-input'
+
+const age = ref(25)
+</script>
+
+<template>
+  <NumberInput 
+    v-model="age" 
+    :min="18" 
+    :max="99" 
+    :step="1" 
+  />
+</template>
+```
+
+## Examples
+
+::number-input-demo
+::
+
+### Registry dependencies
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "input"}]'}
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `min` | `number` | `undefined` | Minimum allowed value. |
+| `max` | `number` | `undefined` | Maximum allowed value. |
+| `step` | `number` | `undefined` | Stepping interval for the numeric input. |
+| `condition` | `Function` | `undefined` | Custom validation function `(value: number) => boolean`. |
+| `v-model` | `number` | `undefined` | The numeric value. |
+
+## Input Group Version
+
+The `InputGroupNumberInput` variant is designed to be used inside an `InputGroup` component, featuring transparent backgrounds and no borders.

@@ -1,0 +1,50 @@
+# Hyper Text
+
+A dynamic text component that creates a scrambling/decoding animation effect, commonly seen in cyberpunk or tech-themed interfaces.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/hyper-text.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/hyper-text.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/hyper-text.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { HyperText } from '@/registry/hyper-text'
+</script>
+
+<template>
+  <HyperText 
+    text="HyperText Animation" 
+    trigger="hover" 
+  />
+</template>
+```
+
+## Examples
+
+::hyper-text-demo
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `text` | `string` | `undefined` | The target text to reveal. |
+| `duration` | `number` | `800` | Total animation duration in milliseconds. |
+| `classes` | `string` | `''` | Additional CSS classes for the container. |
+| `characterSet` | `string` | `A-Z, a-z, 0-9, symbols` | The characters used for the scrambling effect. |
+| `trigger` | `string` | `'visible'` | What triggers the animation: `'visible'` (on scroll) or `'hover'`. |
+| `colorClasses` | `Object` | `Standard theme colors` | CSS classes for the rendered and rendering states. |

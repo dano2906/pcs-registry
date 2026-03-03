@@ -1,0 +1,62 @@
+# Slider Range
+
+A slider component with support for single values, ranges, and visual step indicators.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/slider-range.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/slider-range.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/slider-range.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { SliderRange } from '@/registry/slider-range'
+
+const range = ref([20, 80])
+</script>
+
+<template>
+  <SliderRange 
+    v-model="range" 
+    :min="0" 
+    :max="100" 
+    :step="5" 
+    :step-ticks="true" 
+  />
+</template>
+```
+
+## Examples
+
+::slider-range-demo
+::
+
+### Registry dependencies
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "tooltip"}]'}
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `min` | `number` | `0` | Minimum value. |
+| `max` | `number` | `100` | Maximum value. |
+| `step` | `number` | `1` | Increment step. |
+| `stepTicks` | `boolean` | `false` | Show visual markers for each step. |
+| `v-model` | `number \| number[]` | `[0]` | The current value or range of values. |
+| `class` | `string` | `undefined` | Additional classes for the container. |
+| `disabled` | `boolean` | `false` | Disable the slider. |
+| `orientation` | `string` | `'horizontal'` | Slider orientation (`'horizontal'` or `'vertical'`). |

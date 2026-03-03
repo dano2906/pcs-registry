@@ -2,7 +2,9 @@
 import type { Contribuitor } from '~~/shared/types/app'
 import { RefreshCcw } from 'lucide-vue-next'
 
-const { data, status, error, refresh } = await useFetch<Contribuitor[]>('https://api.github.com/repos/dano2906/pcs-registry/contributors')
+const { data, status, error, refresh } = await useFetch<Contribuitor[]>('https://api.github.com/repos/dano2906/pcs-registry/contributors', {
+  key: 'contribuitors',
+})
 
 function getFallback(username: string) {
   const first = username.at(0)?.toUpperCase() ?? 'O'

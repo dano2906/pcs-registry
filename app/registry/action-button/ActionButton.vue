@@ -38,10 +38,10 @@ const {
     position: 'bottom-right',
   },
   dialogOptions = {
-    title: '¿Está seguro que desea realizar esta acción?',
-    description: 'Esta acción no se puede deshacer.',
-    cancelButtonText: 'Cancelar',
-    confirmButtonText: 'Confirmar',
+    title: 'Are you sure?',
+    description: 'This action cannot be undone.',
+    cancelButtonText: 'Cancel',
+    confirmButtonText: 'Confirm',
   },
 } = defineProps<Props>()
 

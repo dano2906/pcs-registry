@@ -1,0 +1,55 @@
+# Blurry Text
+
+Un componente de animación de texto que revela el contenido con varios efectos, incluyendo desenfoque (blur), desvanecimiento (fade) y deslizamiento (slide).
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/blurry-text.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/blurry-text.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/blurry-text.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { BlurryText } from '@/registry/blurry-text'
+</script>
+
+<template>
+  <BlurryText 
+    text="Hola Mundo" 
+    animation="blurInUp" 
+    by="character" 
+  />
+</template>
+```
+
+## Ejemplos
+
+::blurry-text-demo
+::
+
+### Propiedades
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `text` | `string` | `undefined` | El texto a animar. |
+| `class` | `string` | `''` | Clases para el contenedor. |
+| `segmentClass` | `string` | `''` | Clases para cada segmento de texto. |
+| `as` | `string` | `'p'` | Etiqueta HTML a usar para el contenedor. |
+| `delay` | `number` | `0` | Retraso inicial en segundos. |
+| `duration` | `number` | `0.3` | Duración de la animación de cada segmento en segundos. |
+| `animation` | `string` | `'fadeIn'` | Tipo de animación: `fadeIn`, `blurIn`, `blurInUp`, `blurInDown`, `slideUp`, `slideDown`, `slideLeft`, `slideRight`, `scaleUp`, `scaleDown`. |
+| `by` | `string` | `'word'` | Dividir texto por: `text`, `word`, `character`. |
+| `startOnView` | `boolean` | `true` | Iniciar animación cuando el elemento entre en vista. |
+| `once` | `boolean` | `true` | Animar solo una vez. |
