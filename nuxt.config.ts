@@ -84,6 +84,20 @@ export default defineNuxtConfig({
       { code: 'es', name: 'Español', file: 'es.json' },
     ],
   },
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          langs: ['bash', 'vue', 'vue-html', 'typescript', 'javascript', 'json', 'js', 'ts', 'css', 'html', 'md', 'mdc'],
+          theme: {
+            default: 'github-dark',
+            light: 'github-light',
+            dark: 'github-dark',
+          },
+        },
+      },
+    },
+  },
   routeRules: {
     '/docs/**': {
       appLayout: 'docs',

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import LogoIcon from '~/assets/svg/logo.svg'
-
 const isFixed = ref(false)
 
 onMounted(() => {
@@ -16,9 +14,9 @@ onMounted(() => {
     :class="{ 'bg-muted/10 shadow-none': isFixed }"
   >
     <NuxtLink to="/">
-      <LogoIcon class="text-5xl text-primary my-1 p-0" />
+      <PartialsAnimatedLogo />
     </NuxtLink>
-    <div class="flex items-center justify-center gap-2">
+    <div class="flex grow items-center justify-end gap-2">
       <PartialsLangSelector />
       <PartialsThemeSelector />
       <slot name="sidebar-trigger" />

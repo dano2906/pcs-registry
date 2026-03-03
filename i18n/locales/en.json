@@ -11,11 +11,14 @@
   "call_to_action_2": "Components",
   "no_copyright": "None rights reserved",
   "content_not_found": "Content not found",
+  "shadcn_deps": "Shadcn dependencies",
+  "external_deps": "External dependencies",
   "overview": {
     "title": "Overview",
     "subtitle": "This is a platform for sharing code and providing the basic functionalities of components without losing flexibility."
   },
   "components": {
+    "label": "components",
     "title": "Components",
     "subtitle": "Here you can find the list of all available components."
   },
@@ -26,5 +29,10 @@
   "changelog": {
     "title": "Changelog",
     "subtitle": "Release notes for each component and the next component to be published."
+  },
+  "studio": {
+    "tooltips": {
+      "toggleStudio": "Toogle Studio"
+    }
   }
 }

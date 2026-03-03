@@ -15,3 +15,7 @@ Our Pieces aims to solve this by focusing on:
 3.  **High Customizability**: Since you own the code, you can style and modify components to fit your exact needs without fighting against a library's API.
 4.  **Modern Standards**: All components use modern Vue 3 syntax, including Composition API, TypeScript, and `<script setup>`.
 5.  **Community Driven**: We are open to contributions. If you see a React component you love, help us bring it to Vue.
+
+::div{.flex .justify-end .items-center .w-full .mt-8}
+[Components](/docs/components){.text-muted-foreground .hover:text-accent .font-medium .py-2 .px-4 .rounded .transition-colors}
+::

@@ -1,0 +1,69 @@
+# Action Button
+
+A button component that triggers an action, often with a loading state or confirmation.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/number-input.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/number-input.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/number-input.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { ActionButton } from '@/components/ui/action-button'
+
+const handleClick = async () => {
+  await new Promise(resolve => setTimeout(resolve, 2000))
+}
+</script>
+
+<template>
+  <ActionButton :action="handleClick">
+    Click me
+  </ActionButton>
+</template>
+```
+
+### Dependencies
+
+::deps{type="lib" :external="true" :dependencies='[{ "text": "vue-sonner", "url": "https://vue-sonner.vercel.app"}]'}
+::
+
+### Registry dependencies
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "button"}, {"text": "circular-progress"}, {"text": "dialog"}, {"text": "snackbar"}]'}
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `action` | `Function` | `undefined` | The async function to execute when clicked. |
+| `variant` | `String` | `'default'` | The visual variant of the button. |
+| `size` | `String` | `'default'` | The size of the button. |
+| `loading` | `Boolean` | `false` | Manually control the loading state. |
+| `disabled` | `Boolean` | `false` | Disable the button. |
+
+### Slots
+
+| Slot | Description |
+| :--- | :--- |
+| `default` | The content of the button. |
+| `icon` | An optional icon to display. |
+
+### Examples
+
+::action-button-demo
+::

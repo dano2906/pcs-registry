@@ -6,7 +6,7 @@ import 'vue-sonner/style.css'
 <template>
   <div class="w-full font-inter p-4 relative">
     <SidebarProvider>
-      <div class="w-full max-w-5xl mx-auto space-y-4">
+      <div class="w-full max-w-5xl mx-auto space-y-8">
         <PartialsHeader>
           <template #sidebar-trigger>
             <SidebarTrigger />
@@ -17,6 +17,7 @@ import 'vue-sonner/style.css'
       </div>
     </SidebarProvider>
     <PartialsGoToTop />
+
+    <Toaster rich-colors />
   </div>
-  <Toaster rich-colors />
 </template>

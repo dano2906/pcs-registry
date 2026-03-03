@@ -15,10 +15,7 @@ definePageMeta({
       class="absolute inset-0 -z-10 hero-grid-bottom-left animate-fade-in"
     />
     <PartialsLastComponent />
-    <h1 class="text-6xl lg:text-9xl font-black tracking-tight space-x-3 text-center">
-      <span class="text-primary">Our</span>
-      <span class="text-muted-foreground z-40">Pieces</span>
-    </h1>
+    <PartialsHeroTitle />
     <p class="text-muted-foreground text-sm md:text-base tracking-wide font-normal text-balance text-center">
       {{ $t('description.content_1') }}<span class="text-primary font-medium">{{ $t('description.content_2') }}</span> {{ $t('description.content_3') }} <span class="text-primary font-medium"> {{ $t('description.content_4') }}</span> {{ $t('description.content_5') }}
     </p>

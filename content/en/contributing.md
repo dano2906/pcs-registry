@@ -33,3 +33,8 @@ We actively welcome your Pull Requests (PRs).
 ### License
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
+
+::div{.flex .justify-end .items-center .w-full .mt-8}
+[Components](/docs/components){.text-muted-foreground .hover:text-accent .font-medium .py-2 .px-4 .rounded .transition-colors}
+[Action Button](/docs/components/action-button){.text-muted-foreground .hover:text-accent .font-medium .py-2 .px-4 .rounded .transition-colors}
+::

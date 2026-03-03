@@ -2,18 +2,17 @@
 import type { Collections } from '@nuxt/content'
 
 definePageMeta({
-  name: 'overview',
+  name: 'contributing',
   path: '/docs/contributing',
 })
 
 const { locale } = useI18n()
-const route = useRoute()
 
 const { data: page } = await useAsyncData(`contributing-${locale.value}`, async () => {
   const collection = (`content_${locale.value}`) as keyof Collections
-  const content = await queryCollection(collection).path(route.path).first()
+  const content = await queryCollection(collection).path('/contributing').first()
   if (!content && locale.value !== 'en') {
-    return await queryCollection('content_en').path(route.path).first()
+    return await queryCollection('content_en').path('/contributing').first()
   }
   return content
 }, {
