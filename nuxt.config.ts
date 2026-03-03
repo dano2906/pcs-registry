@@ -3,18 +3,23 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  future: {
+    compatibilityVersion: 5,
+  },
   css: ['~/assets/css/tailwind.css'],
-
   vite: {
     plugins: [tailwindcss()],
   },
   app: {
     head: {
-      title: 'Dano Registry',
+      title: 'Our Pieces',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       ],
+      htmlAttrs: {
+        lang: 'en',
+      },
       link: [
         {
           rel: 'icon',
@@ -25,10 +30,29 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ['shadcn-nuxt', '@nuxt/fonts', '@nuxtjs/color-mode'],
+  modules: [
+    'shadcn-nuxt',
+    '@nuxt/fonts',
+    '@nuxtjs/color-mode',
+    '@nuxt/content',
+    'nuxt-svgo',
+    '@nuxtjs/i18n',
+    'nuxt-studio',
+  ],
   shadcn: {
     prefix: '',
     componentDir: '@/components/ui',
+  },
+  studio: {
+    repository: {
+      provider: 'github',
+      owner: 'dano2906',
+      repo: 'pcs-registry',
+      branch: 'main',
+    },
+    i18n: {
+      defaultLocale: 'en',
+    },
   },
   fonts: {
     families: [
@@ -50,5 +74,33 @@ export default defineNuxtConfig({
   },
   imports: {
     dirs: ['~/registry', '~/components', '~/lib', '~/utils'],
+  },
+  i18n: {
+    defaultLocale: 'en',
+    langDir: 'locales/',
+    strategy: 'no_prefix',
+    locales: [
+      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'es', name: 'Español', file: 'es.json' },
+    ],
+  },
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          langs: ['bash', 'vue', 'vue-html', 'typescript', 'javascript', 'json', 'js', 'ts', 'css', 'html', 'md', 'mdc'],
+          theme: {
+            default: 'github-dark',
+            light: 'github-light',
+            dark: 'github-dark',
+          },
+        },
+      },
+    },
+  },
+  routeRules: {
+    '/docs/**': {
+      appLayout: 'docs',
+    },
   },
 })

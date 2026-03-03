@@ -1,0 +1,15 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "hyper-text",
+  "type": "registry:component",
+  "title": "Hyper Text",
+  "author": "Danilo León <dlg9806@gmail.com>",
+  "description": "Compnente de texto con animaciones",
+  "files": [
+    {
+      "path": "app/registry/hyper-text/HyperText.vue",
+      "content": "<script setup lang=\"ts\">\nimport { onUnmounted, ref, watch } from 'vue'\n\ninterface Props {\n  text: string\n  duration?: number\n  classes?: string\n  characterSet?: string\n  trigger?: 'visible' | 'hover'\n  colorClasses?: Record<'rendered' | 'rendering', string>\n}\n\nconst {\n  duration = 800,\n  characterSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+',\n  classes = '',\n  trigger = 'visible',\n  text,\n  colorClasses = {\n    rendered: 'text-foreground',\n    rendering: 'text-muted-foreground',\n  },\n} = defineProps<Props>()\n\nconst displayText = ref<string[]>(text.split(''))\nconst iterations = ref(0)\nconst targetRef = ref<HTMLElement | null>(null)\nlet interval: ReturnType<typeof setInterval> | null = null\n\nfunction startAnimation() {\n  if (interval)\n    clearInterval(interval)\n\n  iterations.value = 0\n  interval = setInterval(() => {\n    if (iterations.value < text.length) {\n      displayText.value = text.split('').map((l, i) => {\n        if (l === ' ')\n          return l\n\n        if (i <= iterations.value) {\n          return text[i]\n        }\n\n        return characterSet[Math.floor(Math.random() * characterSet.length)]\n      })\n      iterations.value += 0.1\n    }\n    else {\n      displayText.value = text.split('')\n      if (interval)\n        clearInterval(interval)\n    }\n  }, duration / (text.length * 10))\n}\n\nlet observer: IntersectionObserver | null = null\n\nwatch(targetRef, (el) => {\n  if (!el)\n    return\n\n  observer = new IntersectionObserver((entries) => {\n    entries.forEach((entry) => {\n      if (entry.isIntersecting) {\n        startAnimation()\n        observer?.disconnect()\n      }\n    })\n  })\n\n  observer.observe(el)\n})\n\nfunction handleMouseEnter() {\n  if (trigger === 'hover')\n    startAnimation()\n}\n\nonUnmounted(() => {\n  if (interval)\n    clearInterval(interval)\n  if (observer)\n    observer.disconnect()\n})\n</script>\n\n<template>\n  <div\n    ref=\"targetRef\"\n    class=\"flex flex-wrap cursor-default overflow-hidden py-2\"\n    :aria-label=\"text\"\n    role=\"heading\"\n    aria-live=\"polite\"\n    :class=\"classes\"\n    @mouseenter=\"handleMouseEnter\"\n  >\n    <span\n      v-for=\"(letter, i) in displayText\"\n      :key=\"i\"\n      aria-hidden=\"true\"\n      class=\"min-w-[0.1em] transition-colors duration-75 whitespace-pre\"\n      :class=\"[i <= iterations && colorClasses.rendered,\n               i > iterations && colorClasses.rendering]\"\n    >\n      {{ letter === ' ' ? '\\u00A0' : letter }}\n    </span>\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    }
+  ]
+}

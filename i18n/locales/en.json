@@ -1,0 +1,38 @@
+{
+  "description": {
+    "content_1": "A library of visual components designed to  ",
+    "content_2": "work together.",
+    "content_3": "Each piece is built to simplify and  your workflow without sacrificing flexibility.",
+    "content_4": "speed up",
+    "content_5": " your workflow without sacrificing flexibility."
+  },
+  "last_component": "See our last component",
+  "call_to_action_1": "Get started",
+  "call_to_action_2": "Components",
+  "no_copyright": "None rights reserved",
+  "content_not_found": "Content not found",
+  "shadcn_deps": "Shadcn dependencies",
+  "external_deps": "External dependencies",
+  "overview": {
+    "title": "Overview",
+    "subtitle": "This is a platform for sharing code and providing the basic functionalities of components without losing flexibility."
+  },
+  "components": {
+    "label": "components",
+    "title": "Components",
+    "subtitle": "Here you can find the list of all available components."
+  },
+  "contributing": {
+    "title": "Contributing",
+    "subtitle": "This is an open-source project born as a hobby—collaborate with us."
+  },
+  "changelog": {
+    "title": "Changelog",
+    "subtitle": "Release notes for each component and the next component to be published."
+  },
+  "studio": {
+    "tooltips": {
+      "toggleStudio": "Toogle Studio"
+    }
+  }
+}

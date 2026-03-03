@@ -1,0 +1,15 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "input-url",
+  "type": "registry:component",
+  "title": "Input URL",
+  "author": "Danilo León <dlg9806@gmail.com>",
+  "description": "Input para URLs",
+  "files": [
+    {
+      "path": "app/registry/input-url/InputURL.vue",
+      "content": "<script setup lang=\"ts\">\nimport { InfoIcon } from 'lucide-vue-next'\nimport { computed } from 'vue'\n\ninterface Props {\n  protocol?: string\n  hint: string\n  placeholder?: string\n}\n\nconst { protocol = 'https://', hint, placeholder = 'example.com' } = defineProps<Props>()\n\nconst model = defineModel<string | undefined>()\nconst pathname = computed({\n  get() {\n    if (!model.value)\n      return ''\n    return model.value.startsWith(protocol)\n      ? model.value.slice(protocol.length)\n      : model.value\n  },\n  set(newValue) {\n    model.value = newValue ? `${protocol}${newValue}` : undefined\n  },\n})\n</script>\n\n<template>\n  <InputGroup>\n    <InputGroupInput v-model=\"pathname\" :placeholder=\"placeholder\" class=\"pl-1\" />\n\n    <InputGroupAddon>\n      <InputGroupText>{{ protocol }}</InputGroupText>\n    </InputGroupAddon>\n\n    <InputGroupAddon align=\"inline-end\">\n      <TooltipProvider>\n        <Tooltip>\n          <TooltipTrigger as-child>\n            <InputGroupButton class=\"rounded-full\" size=\"icon-xs\">\n              <InfoIcon class=\"size-4\" />\n            </InputGroupButton>\n          </TooltipTrigger>\n          <TooltipContent>{{ hint }}</TooltipContent>\n        </Tooltip>\n      </TooltipProvider>\n    </InputGroupAddon>\n  </InputGroup>\n</template>\n",
+      "type": "registry:ui"
+    }
+  ]
+}

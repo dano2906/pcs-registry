@@ -1,0 +1,69 @@
+# Action Button
+
+Un boton que permite manejar el estado de carga, error y confirmación de una acción.
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/number-input.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/number-input.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/number-input.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { ActionButton } from '@/components/ui/action-button'
+
+const handleClick = async () => {
+  await new Promise(resolve => setTimeout(resolve, 2000))
+}
+</script>
+
+<template>
+  <ActionButton :action="handleClick">
+    Click me
+  </ActionButton>
+</template>
+```
+
+### Dependencias externas
+
+::deps{type="lib" :external="true" :dependencies='[{ "text": "vue-sonner", "url": "https://vue-sonner.vercel.app"}]'}
+::
+
+### Dependencias de registro
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "button"}, {"text": "circular-progress"}, {"text": "dialog"}, {"text": "snackbar"}]'}
+::
+
+### Propiedades
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `action` | `Function` | `undefined` | Función asíncrona a ejecutar |
+| `variant` | `String` | `'default'` | Variante visual del boton |
+| `size` | `String` | `'default'` | Tamaño del boton |
+| `loading` | `Boolean` | `false` | Control del estado de carga |
+| `disabled` | `Boolean` | `false` | Control del estado de deshabilitado |
+
+### Slots
+
+| Slot | Descripción |
+| :--- | :--- |
+| `default` | El contenido del boton |
+| `icon` | Un icono opcional |
+
+### Ejemplos
+
+::action-button-demo
+::

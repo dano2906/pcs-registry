@@ -28,11 +28,11 @@ const field = defineModel<T[]>({
 const data = ref<T[]>([])
 const isLoading = ref(false)
 const expanded = ref(false)
-const isAllSelected = computed(() => field.value.length === data.value.length)
+const isAllSelected = computed(() => data.value.length > 0 && field.value.length === data.value.length)
 
 function onMark(mark: boolean) {
   if (mark === true) {
-    field.value = data.value
+    field.value = [...data.value]
   }
   else {
     field.value = []
@@ -76,7 +76,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <LoadingSwap :is-loading="data.length === 0 || isLoading" class="bg-muted rounded-sm min-h-92">
+  <LoadingSwap :is-loading="isLoading || data.length === 0" class="bg-muted rounded-sm min-h-92">
     <Command class="rounded-sm">
       <div class="w-full py-1.5 relative px-2 border-b border-primary-foreground/10 flex items-center justify-start gap-2 flex-wrap" :class="[expanded ? 'max-h-auto' : 'max-h-9 overflow-hidden']">
         <template v-if="field.length > 0">
