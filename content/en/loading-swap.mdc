@@ -1,0 +1,58 @@
+# Loading Swap
+
+A wrapper component that swaps content with a loading spinner while maintaining the component's dimensions to prevent layout shifts.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/loading-swap.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/loading-swap.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/loading-swap.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { LoadingSwap } from '@/registry/loading-swap'
+
+const loading = ref(true)
+</script>
+
+<template>
+  <LoadingSwap :is-loading="loading">
+    <div>My loaded content</div>
+  </LoadingSwap>
+</template>
+```
+
+## Examples
+
+::loading-swap-demo
+::
+
+### Registry dependencies
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "spinner"}]'}
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `isLoading` | `boolean` | `undefined` | Toggle between content and loading spinner. |
+| `className` | `string` | `undefined` | Additional CSS classes for both content and spinner wrappers. |
+
+### Slots
+
+| Slot | Description |
+| :--- | :--- |
+| `default` | The content to display when `isLoading` is false. |

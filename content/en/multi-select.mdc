@@ -1,0 +1,63 @@
+# Multi Select
+
+A versatile multi-select component that allows users to pick multiple options from grouped lists with an easy-to-use search and chip-based interface.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/multi-select.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/multi-select.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/multi-select.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { MultiSelect } from '@/registry/multi-select'
+
+const selected = ref([])
+const options = [
+  {
+    heading: 'Fruits',
+    items: [
+      { text: 'Apple', value: 'apple' },
+      { text: 'Banana', value: 'banana' },
+    ]
+  }
+]
+</script>
+
+<template>
+  <MultiSelect 
+    v-model="selected" 
+    :data="options" 
+  />
+</template>
+```
+
+## Examples
+
+::multi-select-demo
+::
+
+### Registry dependencies
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "command"}, {"text": "button"}, {"text": "typography"}]'}
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `data` | `MultiSelectDataProp[]` | `undefined` | The hierarchical data structure containing headings and items. |
+| `config` | `Object` | `Default labels` | Custom labels for empty states and search placeholder. |
+| `v-model` | `string[]` | `[]` | Array of selected values. |

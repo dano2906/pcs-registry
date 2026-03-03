@@ -1,0 +1,67 @@
+# Filter Selection
+
+Un componente interactivo de selección de filtros con animaciones fluidas utilizando `motion-v`, que permite a los usuarios seleccionar y gestionar múltiples etiquetas desde una lista.
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/filter-selection.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/filter-selection.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/filter-selection.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { FilterSelection } from '@/registry/filter-selection'
+
+const filtrosActivos = ref(['1', '2'])
+const opciones = [
+  { id: '1', label: 'Vue', color: 'text-emerald-500 border-emerald-500/20 bg-emerald-500/5' },
+  { id: '2', label: 'Nuxt', color: 'text-green-400 border-green-400/20 bg-green-400/5' },
+  { id: '3', label: 'Tailwind', color: 'text-sky-400 border-sky-400/20 bg-sky-400/5' }
+]
+</script>
+
+<template>
+  <FilterSelection 
+    v-model:activeFilters="filtrosActivos" 
+    :items="opciones" 
+    theme="dark" 
+  />
+</template>
+```
+
+## Ejemplos
+
+::filter-selection-demo
+::
+
+### Dependencias externas
+
+::deps{type="lib" :external="true" :dependencies='[{"text": "motion-v", "url": "https://motion-v.com"}]'}
+::
+
+### Propiedades
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `items` | `Array` | `[]` | Lista de filtros disponibles. |
+| `activeFilters` | `Array` | `undefined` | Lista controlada de IDs de filtros activos. |
+| `theme` | `string` | `'dark'` | Tema de UI: `'dark'` o `'light'`. |
+
+### Eventos
+
+| Evento | Payload | Descripción |
+| :--- | :--- | :--- |
+| `@update:activeFilters` | `string[]` | Emitido cuando los filtros se actualizan (v-model). |
+| `@filterChange` | `string[]` | Emitido cuando cambia la selección de filtros. |

@@ -1,0 +1,67 @@
+# Timeline
+
+A component for displaying chronological events, such as a professional journey, project milestones, or a changelog.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/timeline.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/timeline.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/timeline.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { Timeline } from '@/registry/timeline'
+
+const events = [
+  {
+    date: 'February 2024',
+    title: 'Project Kickoff',
+    description: 'Initial planning and team formation.',
+    badge: 'New'
+  },
+  {
+    date: 'March 2024',
+    title: 'MVP Release',
+    description: 'First functional prototype delivered.',
+    link: { text: 'View Demo', url: '#' }
+  }
+]
+</script>
+
+<template>
+  <Timeline :items="events" />
+</template>
+```
+
+## Examples
+
+::timeline-demo
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `items` | `TimelineItem[]` | `[]` | List of events to display. |
+
+### TimelineItem Interface
+
+| Property | Type | Description |
+| :--- | :--- | :--- |
+| `date` | `string` | The date of the event. |
+| `title` | `string` | The title of the event. |
+| `description` | `string` | A detailed description. |
+| `badge` | `string` | Optional text for a badge. |
+| `link` | `Object` | Optional link with `text` and `url`. |

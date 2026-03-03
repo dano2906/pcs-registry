@@ -1,0 +1,55 @@
+# Date Picker
+
+Un componente selector de fechas construido sobre Radix Vue y utilidades de fechas internacionalizadas, proporcionando una interfaz de calendario amigable para seleccionar fechas.
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/date-picker.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/date-picker.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/date-picker.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { DatePicker } from '@/registry/date-picker'
+
+const fecha = ref('2024-03-15')
+</script>
+
+<template>
+  <DatePicker v-model="fecha" placeholder="Seleccione una fecha" />
+</template>
+```
+
+## Ejemplos
+
+::date-picker-demo
+::
+
+### Dependencias externas
+
+::deps{type="lib" :external="true" :dependencies='[{"text": "@internationalized/date", "url": "https://react-spectrum.adobe.com/internationalized/date/"}]'}
+::
+
+### Dependencias de registro
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "button"}, {"text": "calendar"}, {"text": "popover"}]'}
+::
+
+### Propiedades
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `modelValue` | `string` | `undefined` | La fecha seleccionada en formato ISO (YYYY-MM-DD). |
+| `placeholder` | `string` | `'Pick a date'` | Texto a mostrar cuando no hay ninguna fecha seleccionada. |

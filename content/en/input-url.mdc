@@ -1,0 +1,53 @@
+# Input URL
+
+A URL input field with a prefix for protocols and an information tooltip.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/input-url.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/input-url.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/input-url.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { InputURL } from '@/registry/input-url'
+
+const website = ref('')
+</script>
+
+<template>
+  <InputURL 
+    v-model="website" 
+    protocol="https://" 
+    hint="Enter your domain name without protocol" 
+    placeholder="mysite.com" 
+  />
+</template>
+```
+
+## Examples
+
+::input-url-demo
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `protocol` | `string` | `'https://'` | The protocol prefix to display. |
+| `hint` | `string` | `undefined` | The information text for the tooltip. |
+| `placeholder` | `string` | `'example.com'` | The input placeholder text. |
+| `v-model` | `string` | `undefined` | The full URL including protocol. |
+| `disabled` | `boolean` | `false` | Whether the input is disabled. |

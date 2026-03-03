@@ -267,14 +267,14 @@
       ]
     },
     {
-      "name": "blury-text",
+      "name": "blurry-text",
       "type": "registry:component",
-      "title": "Blury text",
+      "title": "Blurry text",
       "description": "Compnente de animación de texto con blur",
       "author": "Danilo León <dlg9806@gmail.com>",
       "files": [
         {
-          "path": "app/registry/blury-text/BluryText.vue",
+          "path": "app/registry/blurry-text/BlurryText.vue",
           "type": "registry:ui"
         }
       ]

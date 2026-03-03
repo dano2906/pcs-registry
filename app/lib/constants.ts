@@ -13,8 +13,8 @@ export const components = [{
   label: 'Auth Modal',
   href: '/docs/components/auth-modal',
 }, {
-  label: 'Blury Text',
-  href: '/docs/components/blury-text',
+  label: 'Blurry Text',
+  href: '/docs/components/blurry-text',
 }, {
   label: 'Currency Selector',
   href: '/docs/components/currency-selector',

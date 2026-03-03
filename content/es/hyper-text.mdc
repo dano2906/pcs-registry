@@ -1,0 +1,50 @@
+# Hyper Text
+
+Un componente de texto dinámico que crea un efecto de animación de codificación/decodificación (scrambling), común en interfaces de temática cyberpunk o tecnológica.
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/hyper-text.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/hyper-text.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/hyper-text.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { HyperText } from '@/registry/hyper-text'
+</script>
+
+<template>
+  <HyperText 
+    text="Animación HyperText" 
+    trigger="hover" 
+  />
+</template>
+```
+
+## Ejemplos
+
+::hyper-text-demo
+::
+
+### Propiedades
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `text` | `string` | `undefined` | El texto final a revelar. |
+| `duration` | `number` | `800` | Duración total de la animación en milisegundos. |
+| `classes` | `string` | `''` | Clases CSS adicionales para el contenedor. |
+| `characterSet` | `string` | `A-Z, a-z, 0-9, símbolos` | El conjunto de caracteres utilizados para el efecto de codificación. |
+| `trigger` | `string` | `'visible'` | Qué activa la animación: `'visible'` (al entrar en vista) o `'hover'` (al pasar el ratón). |
+| `colorClasses` | `Object` | `Colores de tema estándar` | Clases CSS para los estados renderizado y en renderización. |

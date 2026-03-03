@@ -1,0 +1,57 @@
+# Selector de Monedas
+
+Un componente de búsqueda (combobox) para seleccionar monedas internacionales, con soporte para localización y símbolos.
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/currency-selector.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/currency-selector.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/currency-selector.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { CurrencySelector } from '@/registry/currency-selector'
+
+const moneda = ref('USD')
+</script>
+
+<template>
+  <CurrencySelector v-model="moneda" lang="es-ES" />
+</template>
+```
+
+## Ejemplos
+
+::currency-selector-demo
+::
+
+### Dependencias externas
+
+::deps{type="lib" :external="true" :dependencies='[{"text": "currency-codes", "url": "https://github.com/moshidada/currency-codes"}]'}
+::
+
+### Dependencias de registro
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "command"}, {"text": "button"}, {"text": "popover"}]'}
+::
+
+### Propiedades
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `lang` | `string` | `'es-ES'` | Etiqueta de idioma BCP 47 para la localización de la moneda. |
+| `disabled` | `boolean` | `false` | Deshabilitar el selector. |
+| `config` | `Object` | `Etiquetas por defecto` | Etiquetas personalizadas para el marcador de posición, búsqueda y estado vacío. |
+| `v-model` | `string` | `undefined` | El código de moneda seleccionado (ISO 4217). |

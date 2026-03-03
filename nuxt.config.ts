@@ -37,22 +37,10 @@ export default defineNuxtConfig({
     '@nuxt/content',
     'nuxt-svgo',
     '@nuxtjs/i18n',
-    'nuxt-studio',
   ],
   shadcn: {
     prefix: '',
     componentDir: '@/components/ui',
-  },
-  studio: {
-    repository: {
-      provider: 'github',
-      owner: 'dano2906',
-      repo: 'pcs-registry',
-      branch: 'main',
-    },
-    i18n: {
-      defaultLocale: 'en',
-    },
   },
   fonts: {
     families: [

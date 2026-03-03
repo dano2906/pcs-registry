@@ -1,0 +1,106 @@
+# Async Multi Select
+
+A multi-select component that fetches data asynchronously from a URL and allows multiple selection with advanced controls.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/async-multi-select.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/async-multi-select.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/async-multi-select.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { AsyncMultiSelect } from '@/registry/async-multi-select'
+
+const selectedOptions = ref([])
+</script>
+
+<template>
+  <AsyncMultiSelect
+    v-model="selectedOptions"
+    url="https://api.example.com/options"
+    k="id"
+    v="name"
+    :config="{
+      emptyMessage: 'Select one or more options',
+      emptySearchMessage: 'No results found',
+      searchPlaceholder: 'Search...',
+    }"
+  />
+</template>
+```
+
+## Examples
+
+::async-multi-select-demo
+::
+
+### Registry dependencies
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "command"}, {"text": "button"}, {"text": "typography"}, {"text": "loading-swap"}]'}
+::
+
+### Props
+
+| Prop | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `url` | `string` | `undefined` | `true` | The URL to fetch data from. |
+| `sourceKey` | `string` | `undefined` | `false` | The key in the response JSON that contains the data array. |
+| `k` | `keyof T` | `undefined` | `true` | The property name used as the unique identifier for items. |
+| `v` | `keyof T` | `undefined` | `true` | The property name used for display text. |
+| `config` | `Object` | `Default Spanish labels` | `false` | Configuration for labels and placeholders. |
+
+### Configuration Object (`config`)
+
+| Property | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `emptyMessage` | `string` | `'Seleccione una o varias opciones'` | Message shown when no items are selected. |
+| `emptySearchMessage` | `string` | `'No se encontraron resultados'` | Message shown when search returns no results. |
+| `searchPlaceholder` | `string` | `'Buscar...'` | Placeholder for the search input. |
+
+## Simple Async Select
+
+A simpler version of the select component that uses the standard Shadcn UI Select for single selection from an asynchronous source.
+
+### Usage
+
+```vue
+<script setup lang="ts">
+import { AsyncSelectSimple } from '@/registry/async-multi-select'
+
+const selectedValue = ref('')
+</script>
+
+<template>
+  <AsyncSelectSimple
+    v-model="selectedValue"
+    url="https://api.example.com/options"
+    label-key="name"
+    value-key="id"
+    placeholder="Select an option"
+  />
+</template>
+```
+
+### Props (AsyncSelectSimple)
+
+| Prop | Type | Default | Required | Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `url` | `string` | `undefined` | `true` | The URL to fetch data from. |
+| `sourceKey` | `string` | `undefined` | `false` | The key in the response JSON that contains the data array. |
+| `valueKey` | `string` | `undefined` | `true` | The property name used as the value. |
+| `labelKey` | `string` | `undefined` | `true` | The property name used for display text. |
+| `placeholder` | `string` | `'Select an option'` | `false` | Placeholder for the select trigger. |
+| `empty` | `string` | `'No options found'` | `false` | Message shown when no options are available. |

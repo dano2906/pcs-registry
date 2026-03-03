@@ -25,14 +25,5 @@
   "contributing": {
     "title": "Contribuciones",
     "subtitle": "Este es un proyecto de codigo abierto nacido como un hobby, colabora con nosotros."
-  },
-  "changelog": {
-    "title": "Registro de cambios",
-    "subtitle": "Notas de publicacion de cada componente y siguiente componente en ser publicado."
-  },
-  "studio": {
-    "tooltips": {
-      "toggleStudio": "Mostrar Studio"
-    }
   }
 }

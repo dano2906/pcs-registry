@@ -45,21 +45,21 @@ function getItemClasses(set: number, index: number) {
     <!-- Left/Top mask -->
     <div
       v-if="orientation === 'horizontal'"
-      class="pointer-events-none absolute bottom-4 left-0 top-4 z-10 w-32 bg-linear-to-r from-background to-transparent"
+      class="pointer-events-none absolute bottom-4 left-0 top-4 z-10 w-32 bg-linear-to-r from-black/20 to-transparent"
     />
     <div
       v-if="orientation === 'vertical'"
-      class="pointer-events-none absolute left-0 right-0 top-0 z-10 h-25 bg-linear-to-b from-background to-transparent"
+      class="pointer-events-none absolute left-0 right-0 top-0 z-10 h-25 bg-linear-to-b from-black/20 to-transparent"
     />
 
     <!-- Right/Bottom mask -->
     <div
       v-if="orientation === 'horizontal'"
-      class="pointer-events-none absolute bottom-4 right-0 top-4 z-10 w-32 bg-linear-to-l from-background to-transparent"
+      class="pointer-events-none absolute bottom-4 right-0 top-4 z-10 w-32 bg-linear-to-l from-black/20 to-transparent"
     />
     <div
       v-if="orientation === 'vertical'"
-      class="pointer-events-none absolute left-0 right-0 bottom-0 z-10 h-25 bg-linear-to-t from-background to-transparent"
+      class="pointer-events-none absolute left-0 right-0 bottom-0 z-10 h-25 bg-linear-to-t from-black/20 to-transparent"
     />
 
     <!-- Carousel container -->

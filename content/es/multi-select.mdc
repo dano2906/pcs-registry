@@ -1,0 +1,63 @@
+# Multi Select
+
+Un componente de selección múltiple versátil que permite a los usuarios elegir múltiples opciones de listas agrupadas, con una interfaz de búsqueda y etiquetas (chips) fácil de usar.
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/multi-select.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/multi-select.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/multi-select.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { MultiSelect } from '@/registry/multi-select'
+
+const seleccionados = ref([])
+const opciones = [
+  {
+    heading: 'Frutas',
+    items: [
+      { text: 'Manzana', value: 'manzana' },
+      { text: 'Plátano', value: 'platano' },
+    ]
+  }
+]
+</script>
+
+<template>
+  <MultiSelect 
+    v-model="seleccionados" 
+    :data="opciones" 
+  />
+</template>
+```
+
+## Ejemplos
+
+::multi-select-demo
+::
+
+### Dependencias de registro
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "command"}, {"text": "button"}, {"text": "typography"}]'}
+::
+
+### Propiedades
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `data` | `MultiSelectDataProp[]` | `undefined` | La estructura de datos jerárquica que contiene los encabezados y los elementos. |
+| `config` | `Object` | `Etiquetas por defecto` | Etiquetas personalizadas para los estados vacíos y el marcador de posición de búsqueda. |
+| `v-model` | `string[]` | `[]` | Array de valores seleccionados. |

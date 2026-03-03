@@ -1,0 +1,67 @@
+# Timeline
+
+Un componente para mostrar eventos cronológicos, como una trayectoria profesional, hitos de un proyecto o un registro de cambios (changelog).
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/timeline.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/timeline.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/timeline.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { Timeline } from '@/registry/timeline'
+
+const eventos = [
+  {
+    date: 'Febrero 2024',
+    title: 'Inicio del Proyecto',
+    description: 'Planeación inicial y formación del equipo.',
+    badge: 'Nuevo'
+  },
+  {
+    date: 'Marzo 2024',
+    title: 'Lanzamiento del MVP',
+    description: 'Entrega del primer prototipo funcional.',
+    link: { text: 'Ver Demo', url: '#' }
+  }
+]
+</script>
+
+<template>
+  <Timeline :items="eventos" />
+</template>
+```
+
+## Ejemplos
+
+::timeline-demo
+::
+
+### Propiedades
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `items` | `TimelineItem[]` | `[]` | Lista de eventos a mostrar. |
+
+### Interfaz TimelineItem
+
+| Propiedad | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `date` | `string` | La fecha del evento. |
+| `title` | `string` | El título del evento. |
+| `description` | `string` | Una descripción detallada. |
+| `badge` | `string` | Texto opcional para una etiqueta (badge). |
+| `link` | `Object` | Enlace opcional con `text` y `url`. |

@@ -1,0 +1,58 @@
+# File Input
+
+Un componente de carga de archivos mediante arrastrar y soltar (drag-and-drop), con previsualización de imágenes, iconos por tipo de archivo y validación de tamaño.
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/file-input.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/file-input.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/file-input.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { FileInput } from '@/registry/file-input'
+
+const archivos = ref([])
+</script>
+
+<template>
+  <FileInput 
+    v-model="archivos" 
+    :multiple="true" 
+    :max-size="1024 * 1024 * 10" 
+    :accept="['image/*', '.pdf']" 
+  />
+</template>
+```
+
+## Ejemplos
+
+::file-input-demo
+::
+
+### Dependencias de registro
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "button"}]'}
+::
+
+### Propiedades
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `multiple` | `boolean` | `true` | Permitir la selección de múltiples archivos. |
+| `accept` | `AcceptType[]` | `[]` | Array de tipos de archivo aceptados (mimetypes o extensiones). |
+| `maxSize` | `number` | `undefined` | Tamaño máximo de archivo en bytes. |
+| `disabled` | `boolean` | `false` | Deshabilitar la entrada de archivos. |
+| `v-model` | `FilePreview[]` | `[]` | Array de archivos seleccionados con previsualizaciones y metadatos. |

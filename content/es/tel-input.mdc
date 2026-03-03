@@ -1,0 +1,61 @@
+# Tel Input
+
+Un componente de entrada de número de teléfono completo con selección de código de país, formateo automático y soporte para banderas.
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/tel-input.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/tel-input.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/tel-input.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { TelInput } from '@/registry/tel-input'
+
+const numeroTelefono = ref('')
+</script>
+
+<template>
+  <TelInput 
+    v-model="numeroTelefono" 
+    placeholder="Ingrese el número de teléfono" 
+  />
+</template>
+```
+
+## Ejemplos
+
+::tel-input-demo
+::
+
+### Dependencias externas
+
+::deps{type="lib" :external="true" :dependencies='[{"text": "libphonenumber-js", "url": "https://github.com/catamphetamine/libphonenumber-js"}, {"text": "@vueuse/core", "url": "https://vueuse.org"}]'}
+::
+
+### Dependencias de registro
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "input"}, {"text": "button"}]'}
+::
+
+### Propiedades
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `placeholder` | `string` | `'Número de teléfono'` | Texto del marcador de posición del input. |
+| `disabled` | `boolean` | `false` | Indica si el campo está deshabilitado. |
+| `v-model` | `string` | `undefined` | El número de teléfono internacional formateado. |
+| `defaultCountry` | `string` | `'CU'` | Código de país por defecto (ISO 3166-1 alpha-2). |
+| `searchPlaceholder` | `string` | `'Buscar país...'` | Marcador de posición para la búsqueda de países. |

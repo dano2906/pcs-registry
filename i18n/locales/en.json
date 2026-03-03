@@ -25,14 +25,5 @@
   "contributing": {
     "title": "Contributing",
     "subtitle": "This is an open-source project born as a hobby—collaborate with us."
-  },
-  "changelog": {
-    "title": "Changelog",
-    "subtitle": "Release notes for each component and the next component to be published."
-  },
-  "studio": {
-    "tooltips": {
-      "toggleStudio": "Toogle Studio"
-    }
   }
 }

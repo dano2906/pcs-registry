@@ -1,0 +1,58 @@
+# File Input
+
+A drag-and-drop file upload component with image previews, file type icons, and size validation.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/file-input.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/file-input.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/file-input.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { FileInput } from '@/registry/file-input'
+
+const files = ref([])
+</script>
+
+<template>
+  <FileInput 
+    v-model="files" 
+    :multiple="true" 
+    :max-size="1024 * 1024 * 10" 
+    :accept="['image/*', '.pdf']" 
+  />
+</template>
+```
+
+## Examples
+
+::file-input-demo
+::
+
+### Registry dependencies
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "button"}]'}
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `multiple` | `boolean` | `true` | Allow multiple file selection. |
+| `accept` | `AcceptType[]` | `[]` | Array of accepted file types (mimetypes or extensions). |
+| `maxSize` | `number` | `undefined` | Maximum file size in bytes. |
+| `disabled` | `boolean` | `false` | Disable the file input. |
+| `v-model` | `FilePreview[]` | `[]` | Array of selected files with previews and metadata. |

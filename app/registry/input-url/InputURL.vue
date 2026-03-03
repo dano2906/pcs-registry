@@ -44,7 +44,7 @@ const pathname = computed({
       :name="props.name"
       :placeholder="props.placeholder"
       :disabled="props.disabled"
-      class="pl-1"
+      class="pl-1 text-foreground"
     />
 
     <InputGroupAddon>

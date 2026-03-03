@@ -36,6 +36,11 @@ const handleClick = async () => {
 </template>
 ```
 
+## Ejemplos
+
+::action-button-demo
+::
+
 ### Dependencias externas
 
 ::deps{type="lib" :external="true" :dependencies='[{ "text": "vue-sonner", "url": "https://vue-sonner.vercel.app"}]'}
@@ -48,22 +53,18 @@ const handleClick = async () => {
 
 ### Propiedades
 
-| Propiedad | Tipo | Valor por defecto | Descripción |
-| :--- | :--- | :--- | :--- |
-| `action` | `Function` | `undefined` | Función asíncrona a ejecutar |
-| `variant` | `String` | `'default'` | Variante visual del boton |
-| `size` | `String` | `'default'` | Tamaño del boton |
-| `loading` | `Boolean` | `false` | Control del estado de carga |
-| `disabled` | `Boolean` | `false` | Control del estado de deshabilitado |
+| Propiedad | Tipo | Valor por defecto | Requerido | Descripción |
+| :--- | :--- | :--- | :--- | :--- |
+| `action` | `Function` | `undefined` | `true` | Función asíncrona que se ejecuta al hacer clic en el botón.|
+| `requireAreYouSure` | `Boolean` | `'default'` | `false` | Agregar alerta de estar seguro. |
+| `couldCloseAutomatically` | `Boolean` | `'default'` | `false` | Cerrar automáticamente el cuadro de diálogo de alerta. |
+| `toastOptions` | `Object` | `{position: 'bottom-right'}` | `false` | Opciones del toast de retroalimentación. |
+| `dialogOptions` | `Object` | `{title: 'Are you sure?', description: 'This action cannot be undone', cancelButtonText: 'Cancel', confirmButtonText: 'Confirm'}` | `false` | Opciones del cuadro de diálogo de alerta. |
 
 ### Slots
 
 | Slot | Descripción |
 | :--- | :--- |
-| `default` | El contenido del boton |
-| `icon` | Un icono opcional |
+| `text` | Texto del boton. |
+| `icon` | Icono opcional para mostrar. |
 
-### Ejemplos
-
-::action-button-demo
-::

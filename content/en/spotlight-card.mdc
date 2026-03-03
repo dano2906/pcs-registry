@@ -1,0 +1,76 @@
+# Spotlight Card
+
+A collection of card components with dynamic mouse-tracking lighting effects (beams, gradients, glows, and tilts).
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/spotlight-card.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/spotlight-card.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/spotlight-card.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { 
+  SpotlightCard, 
+  SpotlightCardHeader, 
+  SpotlightCardTitle, 
+  SpotlightCardContent 
+} from '@/registry/spotlight-card'
+</script>
+
+<template>
+  <SpotlightCard>
+    <SpotlightCardHeader>
+      <SpotlightCardTitle>Spotlight Effect</SpotlightCardTitle>
+    </SpotlightCardHeader>
+    <SpotlightCardContent>
+      Move your mouse over this card to see the effect.
+    </SpotlightCardContent>
+  </SpotlightCard>
+</template>
+```
+
+## Examples
+
+::spotlight-card-demo
+::
+
+### Variants
+
+- `SpotlightCard`: Standard glow effect.
+- `SpotlightCardBeam`: Cross-beam light effect.
+- `SpotlightCardGradient`: Multi-color gradient follow.
+- `SpotlightCardMultiple`: Multiple colored light sources.
+- `SpotlightCardTilt`: 3D tilt effect combined with lighting.
+
+### Props (Standard SpotlightCard)
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `spotlightColor` | `string` | `'rgba(120, 119, 198, 0.3)'` | The color of the spotlight effect. |
+| `borderColor` | `string` | `undefined` | Custom gradient/color for the border. |
+| `borderWidth` | `number` | `1` | Border width in pixels. |
+| `borderRadius` | `number` | `16` | Corner radius in pixels. |
+| `glowIntensity` | `number` | `0.15` | Brightness of the spotlight glow. |
+| `class` | `string` | `undefined` | Additional CSS classes. |
+
+### Props (Tilt Variant)
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `maxTilt` | `number` | `10` | Maximum tilt angle in degrees. |
+| `perspective` | `number` | `1000` | 3D perspective distance. |
+| `scale` | `number` | `1.02` | Hover scale factor. |
+| `glareOpacity` | `number` | `0.2` | Intensity of the reflective glare. |

@@ -1,0 +1,57 @@
+# Currency Selector
+
+A search-friendly combobox component for selecting international currencies, with support for localization and symbols.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/currency-selector.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/currency-selector.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/currency-selector.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { CurrencySelector } from '@/registry/currency-selector'
+
+const currency = ref('USD')
+</script>
+
+<template>
+  <CurrencySelector v-model="currency" lang="en-US" />
+</template>
+```
+
+## Examples
+
+::currency-selector-demo
+::
+
+### External dependencies
+
+::deps{type="lib" :external="true" :dependencies='[{"text": "currency-codes", "url": "https://github.com/moshidada/currency-codes"}]'}
+::
+
+### Registry dependencies
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "command"}, {"text": "button"}, {"text": "popover"}]'}
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `lang` | `string` | `'es-ES'` | BCP 47 language tag for currency localization. |
+| `disabled` | `boolean` | `false` | Disable the selector. |
+| `config` | `Object` | `Default labels` | Custom labels for placeholder, search, and empty state. |
+| `v-model` | `string` | `undefined` | The selected currency code (ISO 4217). |

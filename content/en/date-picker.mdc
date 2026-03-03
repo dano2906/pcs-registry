@@ -1,0 +1,55 @@
+# Date Picker
+
+A date picker component built on top of Radix Vue and internationalized date utilities, providing a user-friendly calendar interface for selecting dates.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/date-picker.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/date-picker.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/date-picker.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { DatePicker } from '@/registry/date-picker'
+
+const date = ref('2024-03-15')
+</script>
+
+<template>
+  <DatePicker v-model="date" placeholder="Select a date" />
+</template>
+```
+
+## Examples
+
+::date-picker-demo
+::
+
+### External dependencies
+
+::deps{type="lib" :external="true" :dependencies='[{"text": "@internationalized/date", "url": "https://react-spectrum.adobe.com/internationalized/date/"}]'}
+::
+
+### Registry dependencies
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "button"}, {"text": "calendar"}, {"text": "popover"}]'}
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `modelValue` | `string` | `undefined` | The selected date in ISO format (YYYY-MM-DD). |
+| `placeholder` | `string` | `'Pick a date'` | Text to display when no date is selected. |

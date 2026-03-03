@@ -36,6 +36,11 @@ const handleClick = async () => {
 </template>
 ```
 
+## Examples
+
+::action-button-demo
+::
+
 ### Dependencies
 
 ::deps{type="lib" :external="true" :dependencies='[{ "text": "vue-sonner", "url": "https://vue-sonner.vercel.app"}]'}
@@ -43,27 +48,23 @@ const handleClick = async () => {
 
 ### Registry dependencies
 
-::deps{type="shadcn" :external="false" :dependencies='[{"text": "button"}, {"text": "circular-progress"}, {"text": "dialog"}, {"text": "snackbar"}]'}
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "button"}, {"text": "dialog"}]'}
 ::
 
 ### Props
 
-| Prop | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `action` | `Function` | `undefined` | The async function to execute when clicked. |
-| `variant` | `String` | `'default'` | The visual variant of the button. |
-| `size` | `String` | `'default'` | The size of the button. |
-| `loading` | `Boolean` | `false` | Manually control the loading state. |
-| `disabled` | `Boolean` | `false` | Disable the button. |
+| Prop | Type | Default | Required |Description |
+| :--- | :--- | :--- | :--- | :--- |
+| `action` | `Function` | `undefined` | `true` | The async function to execute when clicked. |
+| `requireAreYouSure` | `Boolean` | `'default'` | `false` | Add require are you sure alert dialog. |
+| `couldCloseAutomatically` | `Boolean` | `'default'` | `false` | Close automatically the alert dialog. |
+| `toastOptions` | `Object` | `{position: 'bottom-right'}` | `false` | Toast feedback options. |
+| `dialogOptions` | `Object` | `{title: 'Are you sure?', description: 'This action cannot be undone', cancelButtonText: 'Cancel', confirmButtonText: 'Confirm'}` | `false` | Alert dialog options. |
 
 ### Slots
 
 | Slot | Description |
 | :--- | :--- |
-| `default` | The content of the button. |
+| `text` | The text of the button. |
 | `icon` | An optional icon to display. |
 
-### Examples
-
-::action-button-demo
-::

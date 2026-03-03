@@ -1,0 +1,53 @@
+# Input URL
+
+Un campo de entrada de URL con un prefijo para protocolos y un tooltip de información.
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/input-url.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/input-url.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/input-url.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { InputURL } from '@/registry/input-url'
+
+const sitioWeb = ref('')
+</script>
+
+<template>
+  <InputURL 
+    v-model="sitioWeb" 
+    protocol="https://" 
+    hint="Ingrese su nombre de dominio sin el protocolo" 
+    placeholder="misitio.com" 
+  />
+</template>
+```
+
+## Ejemplos
+
+::input-url-demo
+::
+
+### Propiedades
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `protocol` | `string` | `'https://'` | El prefijo de protocolo a mostrar. |
+| `hint` | `string` | `undefined` | El texto de información para el tooltip. |
+| `placeholder` | `string` | `'example.com'` | El texto del marcador de posición. |
+| `v-model` | `string` | `undefined` | La URL completa, incluyendo el protocolo. |
+| `disabled` | `boolean` | `false` | Indica si el campo está deshabilitado. |

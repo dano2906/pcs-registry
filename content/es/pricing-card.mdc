@@ -1,0 +1,64 @@
+# Tarjeta de Precios
+
+Un componente de tarjeta de precios visualmente atractivo para mostrar planes de productos, características y detalles de precios.
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add "https://dano-registry.vercel.app/r/pricing-card .json"
+```
+
+```bash
+npx shadcn-vue@latest add "https://dano-registry.vercel.app/r/pricing-card .json"
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add "https://dano-registry.vercel.app/r/pricing-card .json"
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { PricingCard } from '@/registry/pricing-card'
+
+const caracteristicas = ['Acceso ilimitado', 'Soporte prioritario', 'Actualizaciones gratuitas']
+const contras = ['Dominio personalizado']
+</script>
+
+<template>
+  <PricingCard 
+    plan-name="Plan Pro" 
+    :price="29.99" 
+    coin="$" 
+    :pros="caracteristicas" 
+    :cons="contras" 
+    :is-most-popular="true" 
+  />
+</template>
+```
+
+## Ejemplos
+
+::pricing-card-demo
+::
+
+### Propiedades
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `planName` | `string` | `undefined` | El nombre del plan de precios. |
+| `price` | `number` | `undefined` | El monto del precio. |
+| `coin` | `string` | `'$'` | Símbolo de moneda (`$`, `€`, `£`, `¥`). |
+| `pros` | `string[]` | `Elementos por defecto` | Lista de características incluidas en el plan. |
+| `cons` | `string[]` | `Elementos por defecto` | Lista de características NO incluidas en el plan. |
+| `isMostPopular` | `boolean` | `false` | Resalta la tarjeta como la opción recomendada. |
+| `paymentMethod` | `string` | `'month'` | Texto del ciclo de facturación (ej. `'month'`, `'year'`). |
+
+### Slots
+
+| Slot | Descripción |
+| :--- | :--- |
+| `default` | Área de contenido personalizado para la lista de características. |

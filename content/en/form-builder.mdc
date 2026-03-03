@@ -1,0 +1,75 @@
+# Form Builder
+
+A powerful form builder that automatically generates forms from a JSON-like field configuration, integrated with `useForm` and Standard Schema (Valibot, Zod, etc.) for validation.
+
+## Installation
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/form-builder.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/form-builder.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/form-builder.json
+```
+::
+
+## Usage
+
+```vue
+<script setup lang="ts">
+import { FormBuilder, useForm } from '@/registry/form-builder'
+import { object, string, email, pipe } from 'valibot'
+
+const schema = object({
+  email: pipe(string(), email()),
+  message: string()
+})
+
+const form = useForm(schema, {
+  initialValues: { email: '', message: '' },
+  onSubmit: (data) => console.log(data)
+})
+
+const fields = [
+  { name: 'email', type: 'email', label: 'Email', placeholder: 'your@email.com' },
+  { name: 'message', type: 'textarea', label: 'Message', placeholder: 'Your message...' }
+]
+</script>
+
+<template>
+  <FormBuilder :form="form" :fields="fields" />
+</template>
+```
+
+## Examples
+
+::form-builder-demo
+::
+
+### External dependencies
+
+::deps{type="lib" :external="true" :dependencies='[{"text": "@standard-schema/spec", "url": "https://github.com/standard-schema/standard-schema"}]'}
+::
+
+### Registry dependencies
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "button"}, {"text": "field"}, {"text": "input"}, {"text": "textarea"},{"text": "checkbox"},{"text": "label"},{"text": "number-field"},{"text": "radio-group"},{"text": "select"},{"text": "switch"},{"text": "async-multi-select"},{"text": "currency-selector"},{"text": "date-picker"},{"text": "file-input"},{"text": "input-password"},{"text": "input-url"},{"text": "loading-swap"},{"text": "number-input"},{"text": "slider-range"},{"text": "tel-input"}]'}
+::
+
+### Props
+
+| Prop | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
+| `fields` | `Field[]` | `undefined` | Array of field configurations. |
+| `form` | `FormContext` | `undefined` | The form context returned by `useForm`. |
+| `formClass` | `string` | `undefined` | CSS classes for the form element. |
+| `isNested` | `boolean` | `false` | Whether the form is nested (used for fieldsets). |
+
+### Supported Field Types
+
+`text`, `email`, `password`, `textarea`, `select`, `async-select`, `checkbox`, `switch`, `number-field`, `numeric`, `currency`, `tel`, `url`, `slider`, `file`, `radio-group`, `date`, `custom`, `fieldset`.

@@ -45,9 +45,6 @@ const groupsES = [{
   }, {
     label: 'Contribuciones',
     href: '/docs/contributing',
-  }, {
-    label: 'Registro de cambios',
-    href: '/docs/changelog',
   }],
 }, {
   label: 'Componentes',

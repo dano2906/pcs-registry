@@ -1,0 +1,75 @@
+# Form Builder
+
+Un generador de formularios potente que crea automáticamente formularios a partir de una configuración de campos tipo JSON, integrado con `useForm` y Standard Schema (Valibot, Zod, etc.) para la validación.
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/form-builder.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/form-builder.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/form-builder.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import { FormBuilder, useForm } from '@/registry/form-builder'
+import { object, string, email, pipe } from 'valibot'
+
+const esquema = object({
+  email: pipe(string(), email()),
+  mensaje: string()
+})
+
+const formulario = useForm(esquema, {
+  initialValues: { email: '', mensaje: '' },
+  onSubmit: (data) => console.log(data)
+})
+
+const campos = [
+  { name: 'email', type: 'email', label: 'Email', placeholder: 'tu@email.com' },
+  { name: 'mensaje', type: 'textarea', label: 'Mensaje', placeholder: 'Tu mensaje...' }
+]
+</script>
+
+<template>
+  <FormBuilder :form="formulario" :fields="campos" />
+</template>
+```
+
+## Ejemplos
+
+::form-builder-demo
+::
+
+### Dependencias externas
+
+::deps{type="lib" :external="true" :dependencies='[{"text": "@standard-schema/spec", "url": "https://github.com/standard-schema/standard-schema"}]'}
+::
+
+### Dependencias de registro
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "button"}, {"text": "field"}, {"text": "input"}, {"text": "textarea"},{"text": "checkbox"},{"text": "label"},{"text": "number-field"},{"text": "radio-group"},{"text": "select"},{"text": "switch"},{"text": "async-multi-select"},{"text": "currency-selector"},{"text": "date-picker"},{"text": "file-input"},{"text": "input-password"},{"text": "input-url"},{"text": "loading-swap"},{"text": "number-input"},{"text": "slider-range"},{"text": "tel-input"}]'}
+::
+
+### Propiedades
+
+| Propiedad | Tipo | Valor por defecto | Descripción |
+| :--- | :--- | :--- | :--- |
+| `fields` | `Field[]` | `undefined` | Array de configuraciones de campos. |
+| `form` | `FormContext` | `undefined` | El contexto del formulario devuelto por `useForm`. |
+| `formClass` | `string` | `undefined` | Clases CSS para el elemento del formulario. |
+| `isNested` | `boolean` | `false` | Indica si el formulario está anidado (utilizado para fieldsets). |
+
+### Tipos de Campo Soportados
+
+`text`, `email`, `password`, `textarea`, `select`, `async-select`, `checkbox`, `switch`, `number-field`, `numeric`, `currency`, `tel`, `url`, `slider`, `file`, `radio-group`, `date`, `custom`, `fieldset`.
