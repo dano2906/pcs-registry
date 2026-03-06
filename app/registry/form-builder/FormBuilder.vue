@@ -47,8 +47,23 @@ const { fields, form, formClass, isNested } = defineProps<{
 
 defineSlots<Record<string, (props: any) => any>>()
 
-const getValue = (name: string) => form.fields.value[name]
-const getError = (name: string) => form.errors.value[name]
+function getValue(name: string) {
+  const val = form.fields.value
+  if (!val)
+    return undefined
+  if (name in val)
+    return val[name]
+  return name.split('.').reduce((acc, part) => acc && acc[part], val)
+}
+
+function getError(name: string) {
+  const err: Record<string, any> = form.errors.value
+  if (!err)
+    return undefined
+  if (name in err)
+    return err[name]
+  return name.split('.').reduce((acc, part) => acc && acc[part], err)
+}
 
 function handleChange(name: string, value: any) {
   form.setFieldValue(name, value)

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { Field } from '~/registry/form-builder/types'
 import { boolean, email, maxValue, minLength, minValue, number, object, pipe, string } from 'valibot'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -31,7 +32,7 @@ const formV = useForm(schema, {
   },
 })
 
-const fields = [
+const fields: Field[] = [
   {
     type: 'fieldset',
     name: 'user_info',

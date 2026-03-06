@@ -16,15 +16,19 @@ const groupsEN = [{
   links: [{
     label: 'Home',
     href: '/',
+    highlight: false,
   }, {
     label: 'Overview',
     href: '/docs/overview',
+    highlight: false,
   }, {
     label: 'Components',
     href: '/docs/components',
+    highlight: false,
   }, {
     label: 'Contributing',
     href: '/docs/contributing',
+    highlight: false,
   }],
 }, {
   label: 'Components',
@@ -36,15 +40,19 @@ const groupsES = [{
   links: [{
     label: 'Inicio',
     href: '/',
+    highlight: false,
   }, {
     label: 'Descripción general',
     href: '/docs/overview',
+    highlight: false,
   }, {
     label: 'Componentes',
     href: '/docs/components',
+    highlight: false,
   }, {
     label: 'Contribuciones',
     href: '/docs/contributing',
+    highlight: false,
   }],
 }, {
   label: 'Componentes',
@@ -78,6 +86,7 @@ const menuItems = computed(() => {
               <SidebarMenuButton as-child>
                 <NuxtLink :to="link.href" class="text-sm text-foreground">
                   {{ link.label }}
+                  <div v-if="link.highlight" class="size-2 rounded-full animate-pulse bg-primary" />
                 </NuxtLink>
               </SidebarMenuButton>
             </SidebarMenuItem>
