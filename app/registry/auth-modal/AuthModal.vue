@@ -134,7 +134,7 @@ function toggleView() {
     </Button>
 
     <AnimatePresence>
-      <div v-if="isOpen" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-0">
+      <div v-if="isOpen" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-0 not-prose">
         <motion.div
           :initial="{ opacity: 0 }"
           :animate="{ opacity: 1 }"
@@ -186,7 +186,7 @@ function toggleView() {
             :variants="{
               hidden: { opacity: 0, y: 20 },
               show: { opacity: 1, y: 0 },
-            }" class="mb-8 text-center mt-2"
+            }" class=" text-center mt-2 mb-6"
           >
             <h2 class="text-2xl font-semibold tracking-tight text-foreground">
               {{ view === 'login' ? options.titleLogin : options.titleRegister }}

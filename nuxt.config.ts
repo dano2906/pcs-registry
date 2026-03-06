@@ -91,4 +91,7 @@ export default defineNuxtConfig({
       appLayout: 'docs',
     },
   },
+  nitro: {
+    preset: 'vercel',
+  },
 })
