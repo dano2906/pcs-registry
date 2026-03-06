@@ -20,14 +20,14 @@ const { items = [] } = defineProps<{
 </script>
 
 <template>
-  <ol class="relative border-s border-border">
+  <ol class="not-prose relative border-s border-border">
     <li
       v-for="(item, index) in items"
       :key="index"
       class="ms-6"
       :class="[index !== items.length - 1 && 'mb-10']"
     >
-      <span class="absolute flex items-center justify-center w-6 h-6 bg-accent rounded-full -start-3 ring-8 ring-background">
+      <span class="absolute flex items-center justify-center w-6 h-6 bg-accent rounded-full -inset-s-3 ring-8 ring-background">
         <Calendar class="w-3 h-3 text-accent-foreground" />
       </span>
 
