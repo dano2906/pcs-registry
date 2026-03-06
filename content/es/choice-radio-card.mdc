@@ -1,0 +1,63 @@
+# Choice Radio Card
+
+Un conjunto de tarjetas de selección de radio que permiten a los usuarios elegir una única opción de una lista, frecuentemente utilizadas para planes, configuraciones o métodos de pago.
+
+## Instalación
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/choice-radio-card.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/choice-radio-card.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/choice-radio-card.json
+```
+::
+
+## Uso
+
+```vue
+<script setup lang="ts">
+import ChoiceRadioCards from '@/components/ui/choice-radio-card/ChoiceRadioCards.vue'
+
+const plans = [
+  { title: 'Gratis', value: 'free', subtitle: 'Ideal para empezar' },
+  { title: 'Pro', value: 'pro', subtitle: 'La mejor opción para profesionales' }
+]
+
+const selectedPlan = ref('free')
+</script>
+
+<template>
+  <ChoiceRadioCards v-model="selectedPlan" :options="plans" />
+</template>
+```
+
+## Ejemplos
+
+::choice-radio-card-demo
+::
+
+### Dependencias del registro
+
+::deps{type="shadcn" :external="false" :dependencies='[{"text": "radio-group"}, {"text": "label"}]'}
+::
+
+### Props
+
+| Prop | Tipo | Por defecto | Requerido | Descripción |
+| :--- | :--- | :--- | :--- | :--- |
+| `options` | `Array` | `undefined` | `true` | Array de objetos de opción: `{ title, value, subtitle?, icon? }`. |
+| `type` | `'standard' \| 'hidden'` | `'standard'` | `false` | El estilo visual de las tarjetas. |
+| `defaultValue` | `string` | `undefined` | `false` | El valor inicial seleccionado. |
+| `v-model` | `string` | `undefined` | `false` | Enlace bidireccional para el valor seleccionado. |
+
+### Slots
+
+| Slot | Descripción |
+| :--- | :--- |
+| `icon` | Slot con alcance (scoped) para personalizar el icono de cada opción. Recibe `{ option }` como alcance. |

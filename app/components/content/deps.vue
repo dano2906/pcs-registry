@@ -10,7 +10,7 @@ const { type = 'shadcn', dependencies, external = true } = defineProps<Props>()
 </script>
 
 <template>
-  <div class="w-full flex flex-row flex-wrap items-center justify-start gap-2">
+  <div class="no-prose w-full flex flex-row flex-wrap items-center justify-start gap-2">
     <Typography variant="span" :text="type === 'shadcn' ? $t('shadcn_deps') : $t('external_deps')" />
     <Badge v-for="(item, i) in dependencies" :key="i" :variant="type === 'shadcn' ? 'default' : 'secondary'" class="transition-transform hover:scale-105">
       <NuxtLink v-if="item.url" :to="item.url" :external :target="external ? '_blank' : '_self'" class="[text-decoration:none]!">

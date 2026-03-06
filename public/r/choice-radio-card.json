@@ -1,0 +1,29 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "choice-radio-card",
+  "type": "registry:component",
+  "title": "Choice radio card",
+  "author": "Danilo León <dlg9806@gmail.com>",
+  "description": "Radio buttons con un estilo de tarjeta",
+  "registryDependencies": [
+    "label",
+    "radio-group"
+  ],
+  "files": [
+    {
+      "path": "app/registry/choice-radio-card/ChoiceRadioCards.vue",
+      "content": "<script setup lang=\"ts\" generic=\"T extends string\">\nimport HiddenRadioCard from './HiddenRadioCard.vue'\nimport StandardRadioCard from './StandardRadioCard.vue'\n\ninterface Props {\n  type?: 'standard' | 'hidden'\n  options: {\n    title: string\n    value: T\n    subtitle?: string\n    icon?: any\n  }[]\n  defaultValue?: T\n}\n\nconst { options, type = 'standard', defaultValue } = defineProps<Props>()\n\nconst selectedOption = defineModel<string | undefined>()\n\nconst types = {\n  standard: StandardRadioCard,\n  hidden: HiddenRadioCard,\n}\n</script>\n\n<template>\n  <RadioGroup v-model=\"selectedOption\" :default-value=\"defaultValue\">\n    <component\n      :is=\"types[type]\"\n      v-for=\"option in options\"\n      :key=\"option.value\"\n      :option=\"option\"\n    >\n      <template #icon>\n        <slot name=\"icon\" :option=\"option\">\n          <component :is=\"option.icon\" v-if=\"option.icon\" class=\"size-6\" />\n        </slot>\n      </template>\n    </component>\n  </RadioGroup>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "app/registry/choice-radio-card/HiddenRadioCard.vue",
+      "content": "<script setup lang=\"ts\">\nconst { option } = defineProps<{\n  option: {\n    title: string\n    value: string\n    subtitle?: string\n  }\n}>()\n</script>\n\n<template>\n  <Label\n    :for=\"option.value\"\n    class=\"relative flex cursor-pointer flex-col items-center justify-center rounded-lg border border-input bg-muted/30 p-2 text-start shadow-sm transition-all hover:bg-muted/60 focus-within:ring-2 focus-within:ring-ring focus-within:ring-offset-2 [&:has([data-state=checked])]:border-primary [&:has([data-state=checked])]:bg-primary/5\"\n  >\n    <slot name=\"icon\" />\n    <RadioGroupItem :id=\"option.value\" :value=\"option.value\" class=\"sr-only\" />\n    <span class=\"text-base font-bold text-muted-foreground\">{{ option.title }}</span>\n    <span v-if=\"option.subtitle\" class=\"text-sm text-muted-foreground/80\">{{ option.subtitle }}</span>\n  </Label>\n</template>\n",
+      "type": "registry:ui"
+    },
+    {
+      "path": "app/registry/choice-radio-card/StandardRadioCard.vue",
+      "content": "<script setup lang=\"ts\">\nconst { option } = defineProps<{\n  option: {\n    title: string\n    value: string\n    subtitle?: string\n  }\n}>()\n</script>\n\n<template>\n  <div class=\"w-full bg-muted/30 p-2.5 rounded-sm flex flex-row items-center justify-between gap-5 hover:bg-muted/60 transition-colors\">\n    <div class=\"flex flex-row items-center justify-start gap-5 w-full\">\n      <RadioGroupItem :id=\"option.value\" :value=\"option.value\" />\n      <Label :for=\"option.value\" class=\"w-full text-muted-foreground text-base flex flex-col items-start justify-start gap-0.5\">\n        {{ option.title }}\n        <span v-if=\"option.subtitle\" class=\"text-muted-foreground/80 text-sm\">{{ option.subtitle }}</span>\n      </Label>\n    </div>\n    <slot name=\"icon\" />\n  </div>\n</template>\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -18,6 +18,21 @@ pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/form-builder.j
 ```
 ::
 
+## Instalación (solo composable)
+
+::div{.space-y-4}
+```bash
+bunx shadcn-vue@latest add https://dano-registry.vercel.app/r/form-composable.json
+```
+
+```bash
+npx shadcn-vue@latest add https://dano-registry.vercel.app/r/form-composable.json
+```
+
+```bash
+pnpm dlx shadcn-vue@latest add https://dano-registry.vercel.app/r/form-composable.json
+```
+
 ## Uso
 
 ```vue

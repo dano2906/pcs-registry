@@ -24,6 +24,10 @@ export const components: {
   href: '/docs/components/blurry-text',
   highlight: false,
 }, {
+  label: 'Choice Radio Card',
+  href: '/docs/components/choice-radio-card',
+  highlight: true,
+}, {
   label: 'Currency Selector',
   href: '/docs/components/currency-selector',
   highlight: false,

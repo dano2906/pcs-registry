@@ -227,7 +227,7 @@
       ]
     },
     {
-      "name": "form composable",
+      "name": "form-composable",
       "type": "registry:hook",
       "title": "Form Composable",
       "description": "Utilidad para manejar formularios con soporte para Standard Schema",
@@ -235,7 +235,7 @@
       "dependencies": ["@standard-schema/spec"],
       "files": [
         {
-          "path": "app/registry/form/useForm.ts",
+          "path": "app/registry/form-builder/useForm.ts",
           "type": "registry:hook"
         }
       ]
@@ -303,6 +303,28 @@
       "files": [
         {
           "path": "app/registry/auth-modal/AuthModal.vue",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "choice-radio-card",
+      "type": "registry:component",
+      "title": "Choice radio card",
+      "description": "Radio buttons con un estilo de tarjeta",
+      "author": "Danilo León <dlg9806@gmail.com>",
+      "registryDependencies": ["label", "radio-group"],
+      "files": [
+        {
+          "path": "app/registry/choice-radio-card/ChoiceRadioCards.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/choice-radio-card/HiddenRadioCard.vue",
+          "type": "registry:ui"
+        },
+        {
+          "path": "app/registry/choice-radio-card/StandardRadioCard.vue",
           "type": "registry:ui"
         }
       ]
